@@ -1,0 +1,22 @@
+{
+  "css.validate": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "eslint.enable": true,
+  "eslint.packageManager": "yarn",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/__generated__/**": true,
+    "**/build/**": true,
+    "**/coverage/**": true
+  },
+  "stylelint.configOverrides": {
+    "ignoreFiles": ["node_modules/**/*.*"]
+  },
+  "stylelint.enable": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
