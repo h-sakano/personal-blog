@@ -1298,10 +1298,10 @@ export type MicrocmsPosts = Node & {
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
-  publishedAtOnHatena?: Maybe<Scalars['Date']>;
   title?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
   body?: Maybe<Scalars['String']>;
+  publishedAtOnHatena?: Maybe<Scalars['Date']>;
   postsId?: Maybe<Scalars['String']>;
 };
 
@@ -1454,7 +1454,6 @@ export type MicrocmsPostsFieldsEnum =
   | 'createdAt'
   | 'updatedAt'
   | 'publishedAt'
-  | 'publishedAtOnHatena'
   | 'title'
   | 'tags'
   | 'tags___id'
@@ -1463,6 +1462,7 @@ export type MicrocmsPostsFieldsEnum =
   | 'tags___publishedAt'
   | 'tags___name'
   | 'body'
+  | 'publishedAtOnHatena'
   | 'postsId';
 
 export type MicrocmsPostsFilterInput = {
@@ -1473,10 +1473,10 @@ export type MicrocmsPostsFilterInput = {
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
-  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
   body?: Maybe<StringQueryOperatorInput>;
+  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -1785,10 +1785,10 @@ export type QueryMicrocmsPostsArgs = {
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
-  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
   body?: Maybe<StringQueryOperatorInput>;
+  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2803,6 +2803,16 @@ export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_3_Query = { site?: Maybe<Pick<Site, 'buildTime'>> };
+
+export type PostQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type PostQuery = { microcmsPosts?: Maybe<(
+    Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+    & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'id' | 'name'>>>> }
+  )> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
