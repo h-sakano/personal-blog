@@ -1,25 +1,22 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Typography } from 'antd';
 import styles from './Header.module.css';
 
-const Header = ({ siteTitle }) => (
+interface HeaderProps {
+  description?: string;
+  siteTitle?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ description, siteTitle }) => (
   <header className={styles.header}>
     <Typography.Title>
       <Link to="/" className={styles.link}>
         {siteTitle}
       </Link>
     </Typography.Title>
+    <Typography.Text type="secondary">{description}</Typography.Text>
   </header>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;

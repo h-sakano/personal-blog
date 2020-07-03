@@ -2844,10 +2844,10 @@ export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_1_Query = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
-export type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SiteTitleQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'description' | 'title'>> }> };
 
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 

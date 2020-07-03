@@ -1,0 +1,10 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.main {
+  margin-top: 30px;
+}
