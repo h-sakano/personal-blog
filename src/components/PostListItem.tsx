@@ -1,13 +1,15 @@
 import React from 'react';
-import { List, Typography } from 'antd';
+import { List, Tag, Typography } from 'antd';
 import { Link } from 'gatsby';
 import styles from './PostListItem.module.css';
 import PublishedAt from './PublishedAt';
+import { MicrocmsPostsTags } from '../../types/graphql-types';
 
 interface Props {
   id: string;
   publishedAt?: string;
   publishedAtOnHatena?: string;
+  tags?: Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>[];
   title?: string;
 }
 
@@ -15,6 +17,7 @@ const PostListItem: React.FC<Props> = ({
   id,
   publishedAt,
   publishedAtOnHatena,
+  tags,
   title,
 }) => (
   <List.Item
@@ -38,6 +41,11 @@ const PostListItem: React.FC<Props> = ({
         {title}
       </Link>
     </Typography.Title>
+    {tags?.map((tag) => (
+      <Tag color={tag.color} key={tag.id}>
+        {tag.name}
+      </Tag>
+    ))}
   </List.Item>
 );
 

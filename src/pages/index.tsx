@@ -25,6 +25,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
             id={item.node.id}
             publishedAt={item.node.publishedAt}
             publishedAtOnHatena={item.node.publishedAtOnHatena}
+            tags={item.node.tags}
             title={item.node.title}
           />
         )}
@@ -44,6 +45,7 @@ export const query = graphql`
           publishedAtOnHatena
           title
           tags {
+            color
             id
             name
           }

@@ -1461,6 +1461,7 @@ export type MicrocmsPostsFieldsEnum =
   | 'tags___updatedAt'
   | 'tags___publishedAt'
   | 'tags___name'
+  | 'tags___color'
   | 'body'
   | 'publishedAtOnHatena'
   | 'postsId';
@@ -1500,6 +1501,7 @@ export type MicrocmsPostsTags = {
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
   name?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
 };
 
 
@@ -1532,6 +1534,7 @@ export type MicrocmsPostsTagsFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  color?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MicrocmsPostsTagsFilterListInput = {
@@ -2857,14 +2860,14 @@ export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type CreatePagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: { edges: Array<{ node: Pick<MicrocmsPosts, 'id' | 'title'> }> } };
+export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: { edges: Array<{ node: Pick<MicrocmsPosts, 'id'> }> } };
 
 export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
         Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'id' | 'name'>>>> }
+        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
       ) }> } };
 
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;

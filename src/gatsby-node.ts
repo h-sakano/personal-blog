@@ -20,7 +20,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
         edges {
           node {
             id
-            title
           }
         }
       }
