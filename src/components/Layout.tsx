@@ -32,10 +32,9 @@ const Layout = ({ children }) => {
         siteTitle={data.site.siteMetadata.title}
       />
       <main className={styles.main}>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <footer className={styles.footer}>
+        ©&nbsp;{new Date().getFullYear()}&nbsp;
+        <a href="https://twitter.com/h_sakano">Hiroki&nbsp;Sakano(@h-sakano)</a>
       </footer>
     </div>
   );
