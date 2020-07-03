@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import { List } from 'antd';
 import Layout from '../components/Layout';
-import Image from '../components/Image';
 import SEO from '../components/SEO';
 import { PostsQuery } from '../../types/graphql-types';
+import PostListItem from '../components/PostListItem';
 
 interface Props {
   data: PostsQuery;
@@ -12,22 +13,22 @@ interface Props {
 const IndexPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <div>
-        {data.allMicrocmsPosts.edges.map((edge) => (
-          <div key={edge.node.id}>
-            <Link to={`/posts/${edge.node.id}`}>{edge.node.title}</Link>
-          </div>
-        ))}
-      </div>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to &quot;Using TypeScript&quot;</Link>
+      <SEO title="トップページ" />
+      <List
+        itemLayout="vertical"
+        size="large"
+        pagination={{ pageSize: 10 }}
+        dataSource={data.allMicrocmsPosts.edges}
+        renderItem={(item) => (
+          <PostListItem
+            key={item.node.id}
+            id={item.node.id}
+            publishedAt={item.node.publishedAt}
+            publishedAtOnHatena={item.node.publishedAtOnHatena}
+            title={item.node.title}
+          />
+        )}
+      />
     </Layout>
   );
 };
@@ -39,6 +40,8 @@ export const query = graphql`
         node {
           id
           body
+          publishedAt
+          publishedAtOnHatena
           title
           tags {
             id

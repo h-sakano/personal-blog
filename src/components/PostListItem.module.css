@@ -1,0 +1,3 @@
+.title:not(:hover) {
+  color: inherit !important;
+}

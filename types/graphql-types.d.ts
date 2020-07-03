@@ -2863,7 +2863,7 @@ export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
-        Pick<MicrocmsPosts, 'id' | 'body' | 'title'>
+        Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
         & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'id' | 'name'>>>> }
       ) }> } };
 
