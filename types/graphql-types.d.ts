@@ -2357,6 +2357,21 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___javascriptEnabled'
+  | 'pluginCreator___pluginOptions___modifyVars___primary_color'
+  | 'pluginCreator___pluginOptions___modifyVars___link_color'
+  | 'pluginCreator___pluginOptions___modifyVars___success_color'
+  | 'pluginCreator___pluginOptions___modifyVars___warning_color'
+  | 'pluginCreator___pluginOptions___modifyVars___error_color'
+  | 'pluginCreator___pluginOptions___modifyVars___font_size_base'
+  | 'pluginCreator___pluginOptions___modifyVars___heading_color'
+  | 'pluginCreator___pluginOptions___modifyVars___text_color'
+  | 'pluginCreator___pluginOptions___modifyVars___text_color_secondary'
+  | 'pluginCreator___pluginOptions___modifyVars___disabled_color'
+  | 'pluginCreator___pluginOptions___modifyVars___border_radius_base'
+  | 'pluginCreator___pluginOptions___modifyVars___border_color_base'
+  | 'pluginCreator___pluginOptions___modifyVars___box_shadow_base'
+  | 'pluginCreator___pluginOptions___style'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___short_name'
@@ -2562,6 +2577,21 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___javascriptEnabled'
+  | 'pluginOptions___modifyVars___primary_color'
+  | 'pluginOptions___modifyVars___link_color'
+  | 'pluginOptions___modifyVars___success_color'
+  | 'pluginOptions___modifyVars___warning_color'
+  | 'pluginOptions___modifyVars___error_color'
+  | 'pluginOptions___modifyVars___font_size_base'
+  | 'pluginOptions___modifyVars___heading_color'
+  | 'pluginOptions___modifyVars___text_color'
+  | 'pluginOptions___modifyVars___text_color_secondary'
+  | 'pluginOptions___modifyVars___disabled_color'
+  | 'pluginOptions___modifyVars___border_radius_base'
+  | 'pluginOptions___modifyVars___border_color_base'
+  | 'pluginOptions___modifyVars___box_shadow_base'
+  | 'pluginOptions___style'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___short_name'
@@ -2695,6 +2725,9 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  javascriptEnabled?: Maybe<Scalars['Boolean']>;
+  modifyVars?: Maybe<SitePluginPluginOptionsModifyVars>;
+  style?: Maybe<Scalars['Boolean']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   short_name?: Maybe<Scalars['String']>;
@@ -2716,6 +2749,9 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  javascriptEnabled?: Maybe<BooleanQueryOperatorInput>;
+  modifyVars?: Maybe<SitePluginPluginOptionsModifyVarsFilterInput>;
+  style?: Maybe<BooleanQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
@@ -2734,6 +2770,38 @@ export type SitePluginPluginOptionsFilterInput = {
   endpoint?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsModifyVars = {
+  primary_color?: Maybe<Scalars['String']>;
+  link_color?: Maybe<Scalars['String']>;
+  success_color?: Maybe<Scalars['String']>;
+  warning_color?: Maybe<Scalars['String']>;
+  error_color?: Maybe<Scalars['String']>;
+  font_size_base?: Maybe<Scalars['String']>;
+  heading_color?: Maybe<Scalars['String']>;
+  text_color?: Maybe<Scalars['String']>;
+  text_color_secondary?: Maybe<Scalars['String']>;
+  disabled_color?: Maybe<Scalars['String']>;
+  border_radius_base?: Maybe<Scalars['String']>;
+  border_color_base?: Maybe<Scalars['String']>;
+  box_shadow_base?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsModifyVarsFilterInput = {
+  primary_color?: Maybe<StringQueryOperatorInput>;
+  link_color?: Maybe<StringQueryOperatorInput>;
+  success_color?: Maybe<StringQueryOperatorInput>;
+  warning_color?: Maybe<StringQueryOperatorInput>;
+  error_color?: Maybe<StringQueryOperatorInput>;
+  font_size_base?: Maybe<StringQueryOperatorInput>;
+  heading_color?: Maybe<StringQueryOperatorInput>;
+  text_color?: Maybe<StringQueryOperatorInput>;
+  text_color_secondary?: Maybe<StringQueryOperatorInput>;
+  disabled_color?: Maybe<StringQueryOperatorInput>;
+  border_radius_base?: Maybe<StringQueryOperatorInput>;
+  border_color_base?: Maybe<StringQueryOperatorInput>;
+  box_shadow_base?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
