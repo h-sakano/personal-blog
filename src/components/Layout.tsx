@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
       />
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
-        ©&nbsp;{new Date().getFullYear()}&nbsp;
+        ©&nbsp;2018-{new Date().getFullYear()}&nbsp;
         <a href="https://twitter.com/h_sakano">Hiroki&nbsp;Sakano(@h-sakano)</a>
       </footer>
     </div>
