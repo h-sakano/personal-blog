@@ -22,7 +22,9 @@ const IndexPage: React.FC<Props> = ({ data }) => {
       </div>
       <div>
         {data.allMicrocmsPosts.edges.map((edge) => (
-          <div key={edge.node.id}>{edge.node.title}</div>
+          <div key={edge.node.id}>
+            <Link to={`/posts/${edge.node.id}`}>{edge.node.title}</Link>
+          </div>
         ))}
       </div>
       <Link to="/page-2/">Go to page 2</Link> <br />

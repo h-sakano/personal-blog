@@ -54,6 +54,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/prefer-default-export': 'off',
 
     // prefer-arrow
     'prefer-arrow/prefer-arrow-functions': [
