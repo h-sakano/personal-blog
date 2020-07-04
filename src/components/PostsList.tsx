@@ -16,6 +16,7 @@ const PostsList: React.FC<Props> = ({ data }) => {
       dataSource={data.allMicrocmsPosts.edges}
       renderItem={(item) => (
         <PostsListItem
+          description={item.node.description}
           key={item.node.id}
           postsId={item.node.postsId}
           publishedAt={item.node.publishedAt}

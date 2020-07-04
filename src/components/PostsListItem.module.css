@@ -1,3 +1,7 @@
 .title:not(:hover) {
   color: inherit !important;
 }
+
+.description {
+  white-space: pre-wrap;
+}

@@ -29,7 +29,7 @@ export const query = graphql`
       edges {
         node {
           id
-          body
+          description
           postsId
           publishedAt
           publishedAtOnHatena

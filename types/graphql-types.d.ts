@@ -1299,6 +1299,7 @@ export type MicrocmsPosts = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
   title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
   body?: Maybe<Scalars['String']>;
   publishedAtOnHatena?: Maybe<Scalars['Date']>;
@@ -1455,6 +1456,7 @@ export type MicrocmsPostsFieldsEnum =
   | 'updatedAt'
   | 'publishedAt'
   | 'title'
+  | 'description'
   | 'tags'
   | 'tags___id'
   | 'tags___createdAt'
@@ -1475,6 +1477,7 @@ export type MicrocmsPostsFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
   body?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
@@ -1998,6 +2001,7 @@ export type QueryMicrocmsPostsArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
   body?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
@@ -3086,7 +3090,7 @@ export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
-        Pick<MicrocmsPosts, 'id' | 'body' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+        Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
         & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
       ) }> } };
 
@@ -3111,7 +3115,7 @@ export type TagQueryVariables = Exact<{
 
 
 export type TagQuery = { allMicrocmsPosts: { edges: Array<{ node: (
-        Pick<MicrocmsPosts, 'id' | 'body' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+        Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
         & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
       ) }> } };
 
