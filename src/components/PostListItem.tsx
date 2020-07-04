@@ -6,7 +6,7 @@ import PublishedAt from './PublishedAt';
 import { MicrocmsPostsTags } from '../../types/graphql-types';
 
 interface Props {
-  id: string;
+  postsId: string;
   publishedAt?: string;
   publishedAtOnHatena?: string;
   tags?: Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>[];
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const PostListItem: React.FC<Props> = ({
-  id,
+  postsId,
   publishedAt,
   publishedAtOnHatena,
   tags,
@@ -22,7 +22,7 @@ const PostListItem: React.FC<Props> = ({
 }) => (
   <List.Item
     extra={
-      <Link to={`/posts/${id}`}>
+      <Link to={`/posts/${postsId}`}>
         <img
           width={272}
           alt="logo"
@@ -37,13 +37,13 @@ const PostListItem: React.FC<Props> = ({
     />
     <br />
     <Typography.Title level={2}>
-      <Link className={styles.title} to={`/posts/${id}`}>
+      <Link className={styles.title} to={`/posts/${postsId}`}>
         {title}
       </Link>
     </Typography.Title>
     {tags?.map((tag) => (
       <Tag color={tag.color} key={tag.id}>
-        {tag.name}
+        <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
       </Tag>
     ))}
   </List.Item>

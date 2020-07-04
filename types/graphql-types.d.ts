@@ -1541,6 +1541,191 @@ export type MicrocmsPostsTagsFilterListInput = {
   elemMatch?: Maybe<MicrocmsPostsTagsFilterInput>;
 };
 
+export type MicrocmsTags = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  publishedAt?: Maybe<Scalars['Date']>;
+  name?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
+  tagsId?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsTagsCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsTagsUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsTagsPublishedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsTagsConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MicrocmsTagsEdge>;
+  nodes: Array<MicrocmsTags>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<MicrocmsTagsGroupConnection>;
+};
+
+
+export type MicrocmsTagsConnectionDistinctArgs = {
+  field: MicrocmsTagsFieldsEnum;
+};
+
+
+export type MicrocmsTagsConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: MicrocmsTagsFieldsEnum;
+};
+
+export type MicrocmsTagsEdge = {
+  next?: Maybe<MicrocmsTags>;
+  node: MicrocmsTags;
+  previous?: Maybe<MicrocmsTags>;
+};
+
+export type MicrocmsTagsFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'publishedAt'
+  | 'name'
+  | 'color'
+  | 'tagsId';
+
+export type MicrocmsTagsFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  color?: Maybe<StringQueryOperatorInput>;
+  tagsId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MicrocmsTagsGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MicrocmsTagsEdge>;
+  nodes: Array<MicrocmsTags>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsTagsSortInput = {
+  fields?: Maybe<Array<Maybe<MicrocmsTagsFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -1601,6 +1786,8 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  microcmsTags?: Maybe<MicrocmsTags>;
+  allMicrocmsTags: MicrocmsTagsConnection;
   microcmsPosts?: Maybe<MicrocmsPosts>;
   allMicrocmsPosts: MicrocmsPostsConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -1775,6 +1962,28 @@ export type QueryImageSharpArgs = {
 export type QueryAllImageSharpArgs = {
   filter?: Maybe<ImageSharpFilterInput>;
   sort?: Maybe<ImageSharpSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryMicrocmsTagsArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  color?: Maybe<StringQueryOperatorInput>;
+  tagsId?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllMicrocmsTagsArgs = {
+  filter?: Maybe<MicrocmsTagsFilterInput>;
+  sort?: Maybe<MicrocmsTagsSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2212,11 +2421,15 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  id?: Maybe<Scalars['String']>;
+  postsId?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  tagsId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
+  postsId?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  tagsId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2318,7 +2531,9 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
-  | 'context___id'
+  | 'context___postsId'
+  | 'context___name'
+  | 'context___tagsId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -2860,13 +3075,18 @@ export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type CreatePagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: { edges: Array<{ node: Pick<MicrocmsPosts, 'id'> }> } };
+export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: { edges: Array<{ node: Pick<MicrocmsPosts, 'postsId'> }> } };
+
+export type CreateTagsPagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateTagsPagesFromMicroCmsQuery = { allMicrocmsTags: { edges: Array<{ node: Pick<MicrocmsTags, 'name' | 'tagsId'> }> } };
 
 export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
-        Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+        Pick<MicrocmsPosts, 'id' | 'body' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
         & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
       ) }> } };
 
@@ -2876,7 +3096,7 @@ export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 export type Unnamed_3_Query = { site?: Maybe<Pick<Site, 'buildTime'>> };
 
 export type PostQueryVariables = Exact<{
-  id: Scalars['String'];
+  postsId?: Maybe<Scalars['String']>;
 }>;
 
 
@@ -2884,6 +3104,16 @@ export type PostQuery = { microcmsPosts?: Maybe<(
     Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
     & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'id' | 'name'>>>> }
   )> };
+
+export type TagQueryVariables = Exact<{
+  tagsId?: Maybe<Scalars['String']>;
+}>;
+
+
+export type TagQuery = { allMicrocmsPosts: { edges: Array<{ node: (
+        Pick<MicrocmsPosts, 'id' | 'body' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
+      ) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

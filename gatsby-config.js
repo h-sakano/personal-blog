@@ -69,6 +69,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: process.env.MICROCMS_API_KEY,
+        serviceId: 'h-sakano',
+        endpoint: 'tags',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {
         fileName: `types/graphql-types.d.ts`

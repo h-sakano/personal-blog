@@ -30,8 +30,8 @@ const Post: React.FC<Props> = ({ data }) => {
 };
 
 export const query = graphql`
-  query Post($id: String!) {
-    microcmsPosts(id: { eq: $id }) {
+  query Post($postsId: String) {
+    microcmsPosts(postsId: { eq: $postsId }) {
       id
       body
       publishedAt
