@@ -3,7 +3,10 @@ import { List, Space, Tag, Typography } from 'antd';
 import { Link } from 'gatsby';
 import styles from './PostsListItem.module.css';
 import PublishedAt from './PublishedAt';
-import { MicrocmsPostsTags } from '../../types/graphql-types';
+import {
+  MicrocmsPostsTags,
+  MicrocmsPostsThumbnail,
+} from '../../types/graphql-types';
 
 interface Props {
   description?: string;
@@ -11,6 +14,7 @@ interface Props {
   publishedAt?: string;
   publishedAtOnHatena?: string;
   tags?: Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>[];
+  thumbnail?: Pick<MicrocmsPostsThumbnail, 'url'>;
   title?: string;
 }
 
@@ -20,6 +24,7 @@ const PostListItem: React.FC<Props> = ({
   publishedAt,
   publishedAtOnHatena,
   tags,
+  thumbnail,
   title,
 }) => (
   <List.Item
@@ -28,7 +33,10 @@ const PostListItem: React.FC<Props> = ({
         <img
           className={styles.thumbnail}
           alt="thumbnail"
-          src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+          src={
+            thumbnail?.url ??
+            'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png'
+          }
         />
       </Link>
     }

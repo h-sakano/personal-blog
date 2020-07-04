@@ -24,7 +24,6 @@ const Post: React.FC<Props> = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: data.microcmsPosts.body }}
         />
       </article>
-      <Link to="/">Go back to the homepage</Link>
     </Layout>
   );
 };

@@ -34,6 +34,9 @@ export const query = graphql`
             id
             name
           }
+          thumbnail {
+            url
+          }
         }
       }
     }

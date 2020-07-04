@@ -1301,6 +1301,7 @@ export type MicrocmsPosts = Node & {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
+  thumbnail?: Maybe<MicrocmsPostsThumbnail>;
   body?: Maybe<Scalars['String']>;
   publishedAtOnHatena?: Maybe<Scalars['Date']>;
   postsId?: Maybe<Scalars['String']>;
@@ -1464,6 +1465,7 @@ export type MicrocmsPostsFieldsEnum =
   | 'tags___publishedAt'
   | 'tags___name'
   | 'tags___color'
+  | 'thumbnail___url'
   | 'body'
   | 'publishedAtOnHatena'
   | 'postsId';
@@ -1479,6 +1481,7 @@ export type MicrocmsPostsFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
+  thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   body?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
@@ -1542,6 +1545,14 @@ export type MicrocmsPostsTagsFilterInput = {
 
 export type MicrocmsPostsTagsFilterListInput = {
   elemMatch?: Maybe<MicrocmsPostsTagsFilterInput>;
+};
+
+export type MicrocmsPostsThumbnail = {
+  url?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsPostsThumbnailFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MicrocmsTags = Node & {
@@ -2003,6 +2014,7 @@ export type QueryMicrocmsPostsArgs = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
+  thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   body?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
@@ -3091,7 +3103,7 @@ export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
         Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
+        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
       ) }> } };
 
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
@@ -3116,7 +3128,7 @@ export type TagQueryVariables = Exact<{
 
 export type TagQuery = { allMicrocmsPosts: { edges: Array<{ node: (
         Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
+        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
       ) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;

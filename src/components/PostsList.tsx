@@ -22,6 +22,7 @@ const PostsList: React.FC<Props> = ({ data }) => {
           publishedAt={item.node.publishedAt}
           publishedAtOnHatena={item.node.publishedAtOnHatena}
           tags={item.node.tags}
+          thumbnail={item.node.thumbnail}
           title={item.node.title}
         />
       )}
