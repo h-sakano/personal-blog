@@ -26,8 +26,8 @@ const PostListItem: React.FC<Props> = ({
     extra={
       <Link to={`/posts/${postsId}`}>
         <img
-          width={272}
-          alt="logo"
+          className={styles.thumbnail}
+          alt="thumbnail"
           src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
         />
       </Link>

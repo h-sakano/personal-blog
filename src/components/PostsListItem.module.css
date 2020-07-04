@@ -5,3 +5,9 @@
 .description {
   white-space: pre-wrap;
 }
+
+.thumbnail {
+  height: 185px;
+  object-fit: cover;
+  width: 300px;
+}
