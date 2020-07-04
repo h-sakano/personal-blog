@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Tag, Typography } from 'antd';
 import { Link } from 'gatsby';
-import styles from './PostListItem.module.css';
+import styles from './PostsListItem.module.css';
 import PublishedAt from './PublishedAt';
 import { MicrocmsPostsTags } from '../../types/graphql-types';
 

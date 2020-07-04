@@ -1,7 +1,7 @@
 import React from 'react';
 import { List } from 'antd';
 import { PostsQuery, TagQuery } from '../../types/graphql-types';
-import PostListItem from './PostListItem';
+import PostsListItem from './PostsListItem';
 
 interface Props {
   data: PostsQuery | TagQuery;
@@ -15,7 +15,7 @@ const PostsList: React.FC<Props> = ({ data }) => {
       pagination={{ pageSize: 10 }}
       dataSource={data.allMicrocmsPosts.edges}
       renderItem={(item) => (
-        <PostListItem
+        <PostsListItem
           key={item.node.id}
           postsId={item.node.postsId}
           publishedAt={item.node.publishedAt}
