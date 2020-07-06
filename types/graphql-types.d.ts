@@ -3086,7 +3086,7 @@ export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSite
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }> };
+export type Unnamed_2_Query = { avatar?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }> };
 
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 

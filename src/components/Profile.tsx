@@ -1,24 +1,14 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Card } from 'antd';
+import { Card, Space } from 'antd';
+import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
 import Img from 'gatsby-image';
 import styles from './Profile.module.css';
-
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
 
 const Profile = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "profile.png" }) {
+      avatar: file(relativePath: { eq: "profile.png" }) {
         childImageSharp {
           fixed(width: 64) {
             ...GatsbyImageSharpFixed
@@ -30,10 +20,36 @@ const Profile = () => {
 
   return (
     <Card title="プロフィール" bordered={false}>
-      <Img
-        className={styles.avatar}
-        fixed={data.placeholderImage.childImageSharp.fixed}
-      />
+      <div className={styles.avatarContainer}>
+        <Img
+          className={styles.avatar}
+          fixed={data.avatar.childImageSharp.fixed}
+        />
+        <div className={styles.profileText}>
+          <a
+            className={styles.snsContainer}
+            href="https://twitter.com/h_sakano"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <Space>
+              <TwitterOutlined className={styles.twitter} />
+              @h_sakano
+            </Space>
+          </a>
+          <a
+            className={styles.snsContainer}
+            href="https://github.com/h-sakano"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <Space>
+              <GithubOutlined className={styles.github} />
+              @h-sakano
+            </Space>
+          </a>
+        </div>
+      </div>
     </Card>
   );
 };

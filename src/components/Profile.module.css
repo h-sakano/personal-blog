@@ -1,3 +1,29 @@
+.avatar-container {
+  display: flex;
+}
+
 .avatar {
   border-radius: 5px;
+  display: block;
+  width: 64px;
+}
+
+.profile-text {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.sns-container {
+  align-items: center;
+  display: flex;
+}
+
+.twitter {
+  color: #1da1f2;
+  font-size: 26px;
+}
+
+.github {
+  color: #24292e;
+  font-size: 26px;
 }
