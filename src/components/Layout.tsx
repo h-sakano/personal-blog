@@ -8,11 +8,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Space } from 'antd';
 import Header from './Header';
 import styles from './Layout.module.css';
 import Profile from './Profile';
 import { SiteTitleQuery } from '../../types/graphql-types';
 import './Layout.css';
+import TwitterWidget from './TwitterWidget';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery<SiteTitleQuery>(graphql`
@@ -35,7 +37,10 @@ const Layout = ({ children }) => {
       <div className={styles.container}>
         <main className={styles.main}>{children}</main>
         <aside className={styles.sider}>
-          <Profile />
+          <Space direction="vertical">
+            <Profile />
+            <TwitterWidget />
+          </Space>
         </aside>
       </div>
       <footer className={styles.footer}>
