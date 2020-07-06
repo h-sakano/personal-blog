@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 import styles from './Layout.module.css';
+import Profile from './Profile';
 import { SiteTitleQuery } from '../../types/graphql-types';
 import './Layout.css';
 
@@ -31,7 +32,12 @@ const Layout = ({ children }) => {
         description={data.site.siteMetadata.description}
         siteTitle={data.site.siteMetadata.title}
       />
-      <main className={styles.main}>{children}</main>
+      <div className={styles.container}>
+        <main className={styles.main}>{children}</main>
+        <aside className={styles.sider}>
+          <Profile />
+        </aside>
+      </div>
       <footer className={styles.footer}>
         ©&nbsp;2018-{new Date().getFullYear()}&nbsp;
         <a href="https://twitter.com/h_sakano">Hiroki&nbsp;Sakano(@h-sakano)</a>
