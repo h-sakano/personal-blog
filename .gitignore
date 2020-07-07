@@ -70,3 +70,6 @@ yarn-error.log
 
 # gatsby-plugin-css-modules-typings
 *.module.css.d.ts
+
+# Firebase
+.firebase
