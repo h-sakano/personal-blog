@@ -19,7 +19,7 @@ const Profile = () => {
   `);
 
   return (
-    <Card title="プロフィール" bordered={false}>
+    <Card className={styles.profile} title="プロフィール" bordered={false}>
       <div className={styles.avatarContainer}>
         <Img
           className={styles.avatar}

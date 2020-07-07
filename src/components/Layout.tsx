@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
       <div className={styles.container}>
         <main className={styles.main}>{children}</main>
         <aside className={styles.sider}>
-          <Space direction="vertical">
+          <Space className={styles.space} direction="vertical">
             <Profile />
             <TwitterWidget />
           </Space>
