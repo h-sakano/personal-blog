@@ -12,9 +12,7 @@ jobs:
           with-cache: true
       - run: yarn global add firebase-tools
       - run: yarn build
-      - run: |
-          export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-          firebase deploy --token "$FIREBASE_TOKEN"
+      - run: yarn firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
   build-and-deploy:
