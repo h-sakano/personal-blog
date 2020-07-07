@@ -11,3 +11,8 @@
   border-radius: 5px;
   padding: 20px;
 }
+
+.body blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 16px;
+}
