@@ -29,16 +29,15 @@ const PostListItem: React.FC<Props> = ({
 }) => (
   <List.Item
     extra={
-      <Link to={`/posts/${postsId}`}>
-        <img
-          className={styles.thumbnail}
-          alt="thumbnail"
-          src={
-            thumbnail?.url ??
-            'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png'
-          }
-        />
-      </Link>
+      thumbnail?.url && (
+        <Link to={`/posts/${postsId}`}>
+          <img
+            className={styles.thumbnail}
+            alt="thumbnail"
+            src={thumbnail?.url}
+          />
+        </Link>
+      )
     }
   >
     <article>
