@@ -1,0 +1,23 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.1
+jobs:
+  build-and-deploy:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+          with-cache: true
+      - run: yarn global add firebase-tools
+      - run: yarn build
+      - run: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            yarn firebase deploy --token "$FIREBASE_TOKEN"
+          fi
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build-and-deploy
