@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Typography } from 'antd';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { TagQuery } from '../../types/graphql-types';
@@ -15,6 +16,9 @@ const Post: React.FC<Props> = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title={pageContext.name} />
+      <Typography.Title level={2}>
+        「{pageContext.name}」カテゴリ
+      </Typography.Title>
       <PostsList data={data} />
     </Layout>
   );
