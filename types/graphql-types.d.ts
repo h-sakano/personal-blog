@@ -3068,25 +3068,20 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_1_Query = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
 export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'description' | 'title'>> }> };
 
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = { avatar?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }> };
+
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { avatar?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }> };
-
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 export type CreatePagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3105,11 +3100,6 @@ export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
         Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
         & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
       ) }> } };
-
-export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_4_Query = { site?: Maybe<Pick<Site, 'buildTime'>> };
 
 export type PostQueryVariables = Exact<{
   postsId?: Maybe<Scalars['String']>;
