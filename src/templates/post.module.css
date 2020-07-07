@@ -5,3 +5,9 @@
 .body * {
   max-width: 100%;
 }
+
+.body pre {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+}
