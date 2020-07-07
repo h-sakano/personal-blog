@@ -24,7 +24,7 @@ const Tag: React.FC<Props> = ({ data, pageContext }) => {
       </Breadcrumb>
       <div className="content">
         <Typography.Title level={2}>
-          「{pageContext.name}」カテゴリ
+          「{pageContext.name}」についての投稿一覧
         </Typography.Title>
         <PostsList data={data} />
       </div>

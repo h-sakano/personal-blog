@@ -52,11 +52,13 @@ const PostListItem: React.FC<Props> = ({
         </Link>
       </Typography.Title>
       <Space direction="vertical">
-        {tags?.map((tag) => (
-          <Tag color={tag.color} key={tag.id}>
-            <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
-          </Tag>
-        ))}
+        <div>
+          {tags?.map((tag) => (
+            <Tag color={tag.color} key={tag.id}>
+              <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
+            </Tag>
+          ))}
+        </div>
         <Typography.Paragraph
           className={styles.description}
           ellipsis={{ rows: 2, symbol: 'more' }}
