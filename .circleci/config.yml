@@ -12,7 +12,10 @@ jobs:
           with-cache: true
       - run: yarn global add firebase-tools
       - run: yarn build
-      - run: yarn firebase deploy --token "$FIREBASE_TOKEN"
+      - run: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            yarn firebase deploy --token "$FIREBASE_TOKEN"
+          fi
 
 workflows:
   build-and-deploy:
