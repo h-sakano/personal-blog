@@ -45,7 +45,13 @@ const Layout = ({ children }) => {
       </div>
       <footer className={styles.footer}>
         ©&nbsp;2018-{new Date().getFullYear()}&nbsp;
-        <a href="https://twitter.com/h_sakano">Hiroki&nbsp;Sakano(@h-sakano)</a>
+        <a
+          href="https://twitter.com/h_sakano"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Hiroki&nbsp;Sakano(@h_sakano)
+        </a>
       </footer>
     </div>
   );
