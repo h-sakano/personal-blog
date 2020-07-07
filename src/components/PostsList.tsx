@@ -12,7 +12,7 @@ const PostsList: React.FC<Props> = ({ data }) => {
     <List
       itemLayout="vertical"
       size="large"
-      pagination={{ pageSize: 10 }}
+      pagination={{ pageSize: 5 }}
       dataSource={data.allMicrocmsPosts.edges}
       renderItem={(item) => (
         <PostsListItem
