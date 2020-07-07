@@ -2591,20 +2591,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___javascriptEnabled'
-  | 'pluginCreator___pluginOptions___modifyVars___primary_color'
-  | 'pluginCreator___pluginOptions___modifyVars___link_color'
-  | 'pluginCreator___pluginOptions___modifyVars___success_color'
-  | 'pluginCreator___pluginOptions___modifyVars___warning_color'
-  | 'pluginCreator___pluginOptions___modifyVars___error_color'
-  | 'pluginCreator___pluginOptions___modifyVars___font_size_base'
-  | 'pluginCreator___pluginOptions___modifyVars___heading_color'
-  | 'pluginCreator___pluginOptions___modifyVars___text_color'
-  | 'pluginCreator___pluginOptions___modifyVars___text_color_secondary'
-  | 'pluginCreator___pluginOptions___modifyVars___disabled_color'
-  | 'pluginCreator___pluginOptions___modifyVars___border_radius_base'
-  | 'pluginCreator___pluginOptions___modifyVars___border_color_base'
-  | 'pluginCreator___pluginOptions___modifyVars___box_shadow_base'
+  | 'pluginCreator___pluginOptions___lessOptions___javascriptEnabled'
   | 'pluginCreator___pluginOptions___style'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
@@ -2811,20 +2798,20 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
-  | 'pluginOptions___javascriptEnabled'
-  | 'pluginOptions___modifyVars___primary_color'
-  | 'pluginOptions___modifyVars___link_color'
-  | 'pluginOptions___modifyVars___success_color'
-  | 'pluginOptions___modifyVars___warning_color'
-  | 'pluginOptions___modifyVars___error_color'
-  | 'pluginOptions___modifyVars___font_size_base'
-  | 'pluginOptions___modifyVars___heading_color'
-  | 'pluginOptions___modifyVars___text_color'
-  | 'pluginOptions___modifyVars___text_color_secondary'
-  | 'pluginOptions___modifyVars___disabled_color'
-  | 'pluginOptions___modifyVars___border_radius_base'
-  | 'pluginOptions___modifyVars___border_color_base'
-  | 'pluginOptions___modifyVars___box_shadow_base'
+  | 'pluginOptions___lessOptions___javascriptEnabled'
+  | 'pluginOptions___lessOptions___modifyVars___primary_color'
+  | 'pluginOptions___lessOptions___modifyVars___link_color'
+  | 'pluginOptions___lessOptions___modifyVars___success_color'
+  | 'pluginOptions___lessOptions___modifyVars___warning_color'
+  | 'pluginOptions___lessOptions___modifyVars___error_color'
+  | 'pluginOptions___lessOptions___modifyVars___font_size_base'
+  | 'pluginOptions___lessOptions___modifyVars___heading_color'
+  | 'pluginOptions___lessOptions___modifyVars___text_color'
+  | 'pluginOptions___lessOptions___modifyVars___text_color_secondary'
+  | 'pluginOptions___lessOptions___modifyVars___disabled_color'
+  | 'pluginOptions___lessOptions___modifyVars___border_radius_base'
+  | 'pluginOptions___lessOptions___modifyVars___border_color_base'
+  | 'pluginOptions___lessOptions___modifyVars___box_shadow_base'
   | 'pluginOptions___style'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
@@ -2959,8 +2946,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-  javascriptEnabled?: Maybe<Scalars['Boolean']>;
-  modifyVars?: Maybe<SitePluginPluginOptionsModifyVars>;
+  lessOptions?: Maybe<SitePluginPluginOptionsLessOptions>;
   style?: Maybe<Scalars['Boolean']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
@@ -2983,8 +2969,7 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
-  javascriptEnabled?: Maybe<BooleanQueryOperatorInput>;
-  modifyVars?: Maybe<SitePluginPluginOptionsModifyVarsFilterInput>;
+  lessOptions?: Maybe<SitePluginPluginOptionsLessOptionsFilterInput>;
   style?: Maybe<BooleanQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
@@ -3006,7 +2991,17 @@ export type SitePluginPluginOptionsFilterInput = {
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsModifyVars = {
+export type SitePluginPluginOptionsLessOptions = {
+  javascriptEnabled?: Maybe<Scalars['Boolean']>;
+  modifyVars?: Maybe<SitePluginPluginOptionsLessOptionsModifyVars>;
+};
+
+export type SitePluginPluginOptionsLessOptionsFilterInput = {
+  javascriptEnabled?: Maybe<BooleanQueryOperatorInput>;
+  modifyVars?: Maybe<SitePluginPluginOptionsLessOptionsModifyVarsFilterInput>;
+};
+
+export type SitePluginPluginOptionsLessOptionsModifyVars = {
   primary_color?: Maybe<Scalars['String']>;
   link_color?: Maybe<Scalars['String']>;
   success_color?: Maybe<Scalars['String']>;
@@ -3022,7 +3017,7 @@ export type SitePluginPluginOptionsModifyVars = {
   box_shadow_base?: Maybe<Scalars['String']>;
 };
 
-export type SitePluginPluginOptionsModifyVarsFilterInput = {
+export type SitePluginPluginOptionsLessOptionsModifyVarsFilterInput = {
   primary_color?: Maybe<StringQueryOperatorInput>;
   link_color?: Maybe<StringQueryOperatorInput>;
   success_color?: Maybe<StringQueryOperatorInput>;
@@ -3123,7 +3118,7 @@ export type PostQueryVariables = Exact<{
 
 export type PostQuery = { microcmsPosts?: Maybe<(
     Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-    & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'id' | 'name'>>>> }
+    & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
   )> };
 
 export type TagQueryVariables = Exact<{

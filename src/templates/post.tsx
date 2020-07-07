@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import { Tag, Typography } from 'antd';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { PostQuery } from '../../types/graphql-types';
 import PublishedAt from '../components/PublishedAt';
+import styles from './post.module.css';
 
 interface Props {
   data: PostQuery;
@@ -18,8 +20,14 @@ const Post: React.FC<Props> = ({ data }) => {
           publishedAt={data.microcmsPosts.publishedAt}
           publishedAtOnHatena={data.microcmsPosts.publishedAtOnHatena}
         />
-        <h1>{data.microcmsPosts.title}</h1>
+        <Typography.Title>{data.microcmsPosts.title}</Typography.Title>
+        {data.microcmsPosts.tags?.map((tag) => (
+          <Tag color={tag.color} key={tag.id}>
+            <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
+          </Tag>
+        ))}
         <div
+          className={styles.body}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: data.microcmsPosts.body }}
         />
@@ -37,6 +45,7 @@ export const query = graphql`
       publishedAtOnHatena
       title
       tags {
+        color
         id
         name
       }
