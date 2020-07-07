@@ -20,7 +20,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
 
 export const query = graphql`
   query Posts {
-    allMicrocmsPosts(sort: { fields: [createdAt], order: DESC }) {
+    allMicrocmsPosts(sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id

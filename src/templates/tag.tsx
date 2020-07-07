@@ -36,7 +36,7 @@ export const query = graphql`
   query Tag($tagsId: String) {
     allMicrocmsPosts(
       filter: { tags: { elemMatch: { id: { eq: $tagsId } } } }
-      sort: { fields: [createdAt], order: DESC }
+      sort: { fields: [publishedAt], order: DESC }
     ) {
       edges {
         node {
