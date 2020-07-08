@@ -6,10 +6,19 @@
   max-width: 100%;
 }
 
+.body :not(pre) > code {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
 .body pre {
   background-color: white;
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
+  white-space: pre-wrap;
 }
 
 .body blockquote {
