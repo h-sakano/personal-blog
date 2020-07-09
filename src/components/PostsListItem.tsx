@@ -28,6 +28,7 @@ const PostListItem: React.FC<Props> = ({
   title,
 }) => (
   <List.Item
+    className={styles.item}
     extra={
       thumbnail?.url && (
         <Link to={`/posts/${postsId}`}>
