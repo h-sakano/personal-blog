@@ -33,9 +33,11 @@ const PostListItem: React.FC<Props> = ({
       thumbnail?.url && (
         <Link to={`/posts/${postsId}`}>
           <img
-            className={styles.thumbnail}
             alt="thumbnail"
+            className={styles.thumbnail}
+            height={123}
             src={thumbnail?.url}
+            width={200}
           />
         </Link>
       )

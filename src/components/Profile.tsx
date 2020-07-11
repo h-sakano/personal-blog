@@ -22,6 +22,7 @@ const Profile = () => {
     <Card className={styles.profile} title="プロフィール" bordered={false}>
       <div className={styles.avatarContainer}>
         <Img
+          alt="プロフィール画像"
           className={styles.avatar}
           fixed={data.avatar.childImageSharp.fixed}
         />
