@@ -66,6 +66,9 @@ module.exports = {
       resolve: 'gatsby-source-microcms',
       options: {
         apiKey: process.env.MICROCMS_API_KEY,
+        query: {
+          limit: 1000,
+        },
         serviceId: 'h-sakano',
         endpoint: 'posts',
       },
@@ -74,6 +77,9 @@ module.exports = {
       resolve: 'gatsby-source-microcms',
       options: {
         apiKey: process.env.MICROCMS_API_KEY,
+        query: {
+          limit: 1000,
+        },
         serviceId: 'h-sakano',
         endpoint: 'tags',
       },
