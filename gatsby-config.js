@@ -9,6 +9,7 @@ module.exports = {
     author: `@h-sakano`,
   },
   plugins: [
+    `gatsby-plugin-csp`,
     {
       resolve: "gatsby-plugin-less",
       options: {
