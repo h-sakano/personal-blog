@@ -9,7 +9,14 @@ module.exports = {
     author: `@h-sakano`,
   },
   plugins: [
-    `gatsby-plugin-csp`,
+    {
+      resolve: `gatsby-plugin-csp`,
+      directives: {
+        "script-src": "'self' www.google-analytics.com",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' https://*"
+      },
+    },
     {
       resolve: "gatsby-plugin-less",
       options: {
