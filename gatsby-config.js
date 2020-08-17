@@ -10,15 +10,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-csp`,
-      reportOnly: true,
-      directives: {
-        "script-src": "'self' www.google-analytics.com",
-        "style-src": "'self' 'unsafe-inline'",
-        "img-src": "'self' https://*",
-      },
-    },
-    {
       resolve: "gatsby-plugin-less",
       options: {
         lessOptions: {
