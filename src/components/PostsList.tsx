@@ -8,11 +8,23 @@ interface Props {
 }
 
 const PostsList: React.FC<Props> = ({ data }) => {
+  const [pageSize, setPageSize] = React.useState(5);
+
+  const handleShowSizeChange = React.useCallback(
+    (_: unknown, newPageSize: number) => {
+      setPageSize(newPageSize);
+    },
+    [],
+  );
+
   return (
     <List
       itemLayout="vertical"
       size="large"
-      pagination={{ pageSize: 5 }}
+      pagination={{
+        onShowSizeChange: handleShowSizeChange,
+        pageSize,
+      }}
       dataSource={data.allMicrocmsPosts.edges}
       renderItem={(item) => (
         <PostsListItem
