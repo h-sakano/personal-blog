@@ -12,7 +12,7 @@ const PublishedAt: React.FC<Props> = ({ publishedAt, publishedAtOnHatena }) => {
   const at = publishedAtOnHatena ?? publishedAt;
 
   return (
-    <Typography.Text type="secondary">
+    <Typography.Text>
       <Space>
         <CalendarOutlined />
         <div>{format(new Date(at), 'yyyy年MM月dd日')}</div>

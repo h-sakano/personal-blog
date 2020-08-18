@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ description, siteTitle }) => (
         {siteTitle}
       </Link>
     </Typography.Title>
-    <Typography.Text type="secondary">{description}</Typography.Text>
+    <Typography.Text>{description}</Typography.Text>
   </header>
 );
 

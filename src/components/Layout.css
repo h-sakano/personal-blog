@@ -2,6 +2,10 @@ body {
   background: whitesmoke;
 }
 
+a {
+  color: blue;
+}
+
 .content {
   margin-top: 40px;
 }

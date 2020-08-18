@@ -2604,6 +2604,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___serviceId'
   | 'pluginCreator___pluginOptions___endpoint'
   | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___trackingId'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -2825,6 +2826,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___serviceId'
   | 'pluginOptions___endpoint'
   | 'pluginOptions___fileName'
+  | 'pluginOptions___trackingId'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -2961,6 +2963,7 @@ export type SitePluginPluginOptions = {
   serviceId?: Maybe<Scalars['String']>;
   endpoint?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
+  trackingId?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -2985,6 +2988,7 @@ export type SitePluginPluginOptionsFilterInput = {
   serviceId?: Maybe<StringQueryOperatorInput>;
   endpoint?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
+  trackingId?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
