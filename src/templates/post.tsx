@@ -14,7 +14,10 @@ interface Props {
 const Post: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
-      <SEO title={data.microcmsPosts.title} />
+      <SEO
+        image={data.microcmsPosts.thumbnail.url}
+        title={data.microcmsPosts.title}
+      />
       <Breadcrumb>
         <Breadcrumb.Item>
           <Link to="/">トップページ</Link>
@@ -69,6 +72,9 @@ export const query = graphql`
       body
       publishedAt
       publishedAtOnHatena
+      thumbnail {
+        url
+      }
       title
       tags {
         color

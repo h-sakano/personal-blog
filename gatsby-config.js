@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Web系エンジニアのアウトプット練習場`,
     description: `エンジニアリングと書評が中心。たまに全然関係無い話もします。`,
-    author: `@h-sakano`,
+    author: `@h_sakano`,
     siteUrl: 'https://blog.h-sakano.dev',
   },
   plugins: [

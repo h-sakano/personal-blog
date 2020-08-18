@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 interface SEOProps {
   description?: string;
+  image?: string;
   lang?: string;
   meta?: React.DetailedHTMLProps<
     React.MetaHTMLAttributes<HTMLMetaElement>,
@@ -19,7 +20,7 @@ interface SEOProps {
   title: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<SEOProps> = ({ description, image, lang, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -47,6 +48,10 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: image,
         },
         {
           property: `og:title`,

@@ -1301,10 +1301,10 @@ export type MicrocmsPosts = Node & {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
-  body?: Maybe<Scalars['String']>;
-  publishedAtOnHatena?: Maybe<Scalars['Date']>;
-  postsId?: Maybe<Scalars['String']>;
   thumbnail?: Maybe<MicrocmsPostsThumbnail>;
+  body?: Maybe<Scalars['String']>;
+  postsId?: Maybe<Scalars['String']>;
+  publishedAtOnHatena?: Maybe<Scalars['Date']>;
 };
 
 
@@ -1465,10 +1465,10 @@ export type MicrocmsPostsFieldsEnum =
   | 'tags___publishedAt'
   | 'tags___name'
   | 'tags___color'
+  | 'thumbnail___url'
   | 'body'
-  | 'publishedAtOnHatena'
   | 'postsId'
-  | 'thumbnail___url';
+  | 'publishedAtOnHatena';
 
 export type MicrocmsPostsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1481,10 +1481,10 @@ export type MicrocmsPostsFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
-  body?: Maybe<StringQueryOperatorInput>;
-  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
-  postsId?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
+  body?: Maybe<StringQueryOperatorInput>;
+  postsId?: Maybe<StringQueryOperatorInput>;
+  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
 export type MicrocmsPostsGroupConnection = {
@@ -1564,8 +1564,8 @@ export type MicrocmsTags = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
   name?: Maybe<Scalars['String']>;
-  tagsId?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
+  tagsId?: Maybe<Scalars['String']>;
 };
 
 
@@ -1710,8 +1710,8 @@ export type MicrocmsTagsFieldsEnum =
   | 'updatedAt'
   | 'publishedAt'
   | 'name'
-  | 'tagsId'
-  | 'color';
+  | 'color'
+  | 'tagsId';
 
 export type MicrocmsTagsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1722,8 +1722,8 @@ export type MicrocmsTagsFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  tagsId?: Maybe<StringQueryOperatorInput>;
   color?: Maybe<StringQueryOperatorInput>;
+  tagsId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MicrocmsTagsGroupConnection = {
@@ -1990,8 +1990,8 @@ export type QueryMicrocmsTagsArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  tagsId?: Maybe<StringQueryOperatorInput>;
   color?: Maybe<StringQueryOperatorInput>;
+  tagsId?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -2014,10 +2014,10 @@ export type QueryMicrocmsPostsArgs = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
-  body?: Maybe<StringQueryOperatorInput>;
-  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
-  postsId?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
+  body?: Maybe<StringQueryOperatorInput>;
+  postsId?: Maybe<StringQueryOperatorInput>;
+  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
 
@@ -3119,7 +3119,7 @@ export type PostQueryVariables = Exact<{
 
 export type PostQuery = { microcmsPosts?: Maybe<(
     Pick<MicrocmsPosts, 'id' | 'body' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-    & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
+    & { thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
   )> };
 
 export type TagQueryVariables = Exact<{
