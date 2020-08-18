@@ -15,6 +15,7 @@ const Post: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <SEO
+        description={data.microcmsPosts.description}
         image={data.microcmsPosts.thumbnail?.url}
         title={data.microcmsPosts.title}
       />
@@ -70,6 +71,7 @@ export const query = graphql`
     microcmsPosts(postsId: { eq: $postsId }) {
       id
       body
+      description
       publishedAt
       publishedAtOnHatena
       thumbnail {
