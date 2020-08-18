@@ -7,7 +7,7 @@ module.exports = {
     title: `Web系エンジニアのアウトプット練習場`,
     description: `エンジニアリングと書評が中心。たまに全然関係無い話もします。`,
     author: `@h_sakano`,
-    siteUrl: 'https://blog.h-sakano.dev',
+    siteUrl: 'https://blog.h-sakano.dev/',
   },
   plugins: [
     {
@@ -60,7 +60,7 @@ module.exports = {
         background_color: `#1da1f2`,
         theme_color: `#1da1f2`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`,
+        icon: `static/images/favicon.png`,
       },
     },
     {

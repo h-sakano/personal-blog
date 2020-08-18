@@ -29,6 +29,7 @@ const SEO: React.FC<SEOProps> = ({ description, image, lang, meta, title }) => {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -51,7 +52,7 @@ const SEO: React.FC<SEOProps> = ({ description, image, lang, meta, title }) => {
         },
         {
           property: `og:image`,
-          content: image,
+          content: image ?? `${site.siteMetadata.siteUrl}images/favicon.png`,
         },
         {
           property: `og:title`,

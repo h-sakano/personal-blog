@@ -15,7 +15,7 @@ const Post: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <SEO
-        image={data.microcmsPosts.thumbnail.url}
+        image={data.microcmsPosts.thumbnail?.url}
         title={data.microcmsPosts.title}
       />
       <Breadcrumb>
