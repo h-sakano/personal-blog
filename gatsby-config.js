@@ -7,6 +7,7 @@ module.exports = {
     title: `Web系エンジニアのアウトプット練習場`,
     description: `エンジニアリングと書評が中心。たまに全然関係無い話もします。`,
     author: `@h-sakano`,
+    siteUrl: 'https://blog.h-sakano.dev',
   },
   plugins: [
     {
@@ -90,6 +91,7 @@ module.exports = {
         fileName: `types/graphql-types.d.ts`
       }
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-twitter`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
