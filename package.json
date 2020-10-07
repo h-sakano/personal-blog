@@ -21,7 +21,7 @@
     "gatsby-plugin-twitter": "^2.3.12",
     "gatsby-plugin-typescript": "^2.4.18",
     "gatsby-source-filesystem": "^2.3.33",
-    "gatsby-source-microcms": "^0.2.0",
+    "gatsby-source-microcms": "^1.0.0",
     "gatsby-transformer-sharp": "^2.5.17",
     "less": "^3.12.2",
     "prop-types": "^15.7.2",
