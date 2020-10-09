@@ -8295,10 +8295,10 @@ gatsby-plugin-graphql-codegen@^2.7.1:
     fs-extra "^7.0.1"
     lodash.debounce "^4.0.8"
 
-gatsby-plugin-less@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-less/-/gatsby-plugin-less-4.0.5.tgz#ba030817de28374e8a6e68995ecc9e4e0f34ddc8"
-  integrity sha512-pumrgo2spPsKQmINCDh/VGa8PpvXebIyDn6j5KPvVLdTdklsV2tYeqjrzmzHGQKlN9U3lpS94MpXv0cIB3BCkg==
+gatsby-plugin-less@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-less/-/gatsby-plugin-less-4.0.6.tgz#58d0d4e6a34bf3971b865a0dac3cee09734656da"
+  integrity sha512-82tCyb+AkseoPqQSaVvBPzNb2pNccP6jmp22yvIMFRi4P2dO4kxIOcl0zio27J7+1f4kqSSQla8bZTDxoQoISw==
   dependencies:
     "@babel/runtime" "^7.11.2"
     less-loader "^6.2.0"
