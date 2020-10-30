@@ -50,7 +50,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "firebase-tools": "^8.14.1",
-    "prettier": "2.0.5",
+    "prettier": "2.1.2",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
