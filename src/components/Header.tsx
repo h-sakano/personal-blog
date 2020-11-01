@@ -1,6 +1,6 @@
+import { Typography } from 'antd';
 import { Link } from 'gatsby';
 import React from 'react';
-import { Typography } from 'antd';
 import styles from './Header.module.css';
 
 interface HeaderProps {
