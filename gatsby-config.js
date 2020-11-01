@@ -89,6 +89,7 @@ module.exports = {
         fileName: `types/graphql-types.d.ts`
       }
     },
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-twitter`,
     {
