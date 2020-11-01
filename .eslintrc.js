@@ -1,36 +1,43 @@
 module.exports = {
-  globals: {
-    __PATH_PREFIX__: true,
+  env: {
+    browser: true,
+    es2020: true,
+    'jest/globals': true,
   },
   extends: [
-    'airbnb',
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb/hooks',
+    'react-app',
+    'react-app/jest',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jest/recommended',
-    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
-    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
     'prettier/standard',
-    'react-app',
   ],
-  overrides: [
-    {
-      // enable the rule specifically for TypeScript files
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-      },
-    },
-  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2020,
+    project: './tsconfig.eslint.json',
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+  },
   plugins: [
     '@typescript-eslint',
     'import',
@@ -41,12 +48,66 @@ module.exports = {
     'react',
     'react-hooks',
   ],
-  root: true,
   rules: {
+    camelcase: 'off',
+    'default-case': 'off',
+    'lines-between-class-members': [
+      'error',
+      'always',
+      {
+        exceptAfterSingleLine: true,
+      },
+    ],
+    'no-underscore-dangle': [
+      'error',
+      {
+        allow: ['_destroy'],
+      },
+    ],
+    'no-void': 'off',
+    // 'padding-line-between-statements': [
+    //   'error',
+    //   {
+    //     blankLine: 'always',
+    //     prev: '*',
+    //     next: 'return',
+    //   },
+    // ],
+    'padding-line-between-statements': 'off',
+
+    // @typescript-eslintの同様のルールを使う必要がある
+    // https://github.com/typescript-eslint/typescript-eslint/pull/2039
+    'no-redeclare': 'off',
+    'no-shadow': 'off',
+    'no-undef': 'off',
+    'no-unused-vars': 'off',
+    'no-use-before-define': 'off',
+
+    // @typescript-eslint
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: false,
+        vars: 'all',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/unbound-method': 'off',
+
     // import
     'import/extensions': [
       'error',
-      'always',
+      'ignorePackages',
       {
         js: 'never',
         jsx: 'never',
@@ -54,15 +115,40 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'import/no-extraneous-dependencies': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '.storybook/**',
+          'stories/**',
+          '**/*/*.story.*',
+          '**/*/*.stories.*',
+          '**/__specs__/**',
+          '**/*/*.spec.*',
+          '**/__tests__/**',
+          '**/*/*.test.*',
+          'src/setupTests.*',
+          'src/test-utils.*',
+        ],
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        alphabetize: { order: 'asc', caseInsensitive: true },
+      },
+    ],
     'import/prefer-default-export': 'off',
+
+    // jsx-a11y
+    'jsx-a11y/control-has-associated-label': 'off',
 
     // prefer-arrow
     'prefer-arrow/prefer-arrow-functions': [
       'error',
       {
         disallowPrototype: true,
-        singleReturnOnly: true,
+        singleReturnOnly: false,
         classPropertiesAllowed: false,
       },
     ],
@@ -71,9 +157,28 @@ module.exports = {
     'react/jsx-filename-extension': [
       'error',
       {
-        extensions: ['jsx', 'tsx'],
+        extensions: ['.jsx', '.tsx'],
       },
     ],
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-array-index-key': 'off',
     'react/prop-types': 'off',
+    'react/require-default-props': 'off',
   },
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react-prop-types': 'off',
+      },
+    },
+  ],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
+  },
+  root: true,
 };
