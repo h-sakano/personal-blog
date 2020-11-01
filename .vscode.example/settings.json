@@ -6,7 +6,6 @@
   },
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
-  "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
