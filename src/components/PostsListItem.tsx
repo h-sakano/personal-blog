@@ -1,12 +1,12 @@
-import React from 'react';
 import { List, Space, Tag, Typography } from 'antd';
 import { Link } from 'gatsby';
-import styles from './PostsListItem.module.css';
-import PublishedAt from './PublishedAt';
+import React from 'react';
 import {
   MicrocmsPostsTags,
   MicrocmsPostsThumbnail,
 } from '../../types/graphql-types';
+import styles from './PostsListItem.module.css';
+import PublishedAt from './PublishedAt';
 
 interface Props {
   description?: string;

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
 import { Breadcrumb, Menu, Tag, Typography } from 'antd';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import { Link, graphql } from 'gatsby';
+import React from 'react';
 import { PostQuery } from '../../types/graphql-types';
+import Layout from '../components/Layout';
 import PublishedAt from '../components/PublishedAt';
+import SEO from '../components/SEO';
 import styles from './post.module.css';
 
 interface Props {

@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
-    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -10,11 +9,9 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'react-app',
-    'react-app/jest',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:jest/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
@@ -25,8 +22,7 @@ module.exports = {
     'prettier/standard',
   ],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    __PATH_PREFIX__: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -41,13 +37,13 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'import',
-    'jest',
     'jsx-a11y',
     'prefer-arrow',
     'prettier',
     'react',
     'react-hooks',
   ],
+  root: true,
   rules: {
     camelcase: 'off',
     'default-case': 'off',
@@ -180,5 +176,4 @@ module.exports = {
       },
     },
   },
-  root: true,
 };

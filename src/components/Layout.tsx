@@ -5,14 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import { Space } from 'antd';
+import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { SiteTitleQuery } from '../../types/graphql-types';
 import Header from './Header';
 import styles from './Layout.module.css';
 import Profile from './Profile';
-import { SiteTitleQuery } from '../../types/graphql-types';
 import './Layout.css';
 import TwitterWidget from './TwitterWidget';
 

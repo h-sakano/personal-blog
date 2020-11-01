@@ -2430,12 +2430,20 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  skip?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
   postsId?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   tagsId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
+  limit?: Maybe<IntQueryOperatorInput>;
+  page?: Maybe<IntQueryOperatorInput>;
+  skip?: Maybe<IntQueryOperatorInput>;
+  totalCount?: Maybe<IntQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   tagsId?: Maybe<StringQueryOperatorInput>;
@@ -2540,6 +2548,10 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___limit'
+  | 'context___page'
+  | 'context___skip'
+  | 'context___totalCount'
   | 'context___postsId'
   | 'context___name'
   | 'context___tagsId'
@@ -3111,20 +3123,22 @@ export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type CreatePagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: { edges: Array<{ node: Pick<MicrocmsPosts, 'postsId'> }> } };
+export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: (
+    Pick<MicrocmsPostsConnection, 'totalCount'>
+    & { edges: Array<{ node: Pick<MicrocmsPosts, 'postsId'> }> }
+  ) };
 
 export type CreateTagsPagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CreateTagsPagesFromMicroCmsQuery = { allMicrocmsTags: { edges: Array<{ node: Pick<MicrocmsTags, 'name' | 'tagsId'> }> } };
 
-export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type CreateTagPostsPagesFromMicroCmsQueryVariables = Exact<{
+  tagsId?: Maybe<Scalars['String']>;
+}>;
 
 
-export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
-        Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
-      ) }> } };
+export type CreateTagPostsPagesFromMicroCmsQuery = { allMicrocmsPosts: Pick<MicrocmsPostsConnection, 'totalCount'> };
 
 export type PostQueryVariables = Exact<{
   postsId?: Maybe<Scalars['String']>;
@@ -3136,7 +3150,20 @@ export type PostQuery = { microcmsPosts?: Maybe<(
     & { thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
   )> };
 
+export type PostsQueryVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  skip?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
+        Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
+      ) }> } };
+
 export type TagQueryVariables = Exact<{
+  limit?: Maybe<Scalars['Int']>;
+  skip?: Maybe<Scalars['Int']>;
   tagsId?: Maybe<Scalars['String']>;
 }>;
 

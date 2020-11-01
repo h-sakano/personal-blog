@@ -1,8 +1,5 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    './node_modules/prettier-stylelint/config.js',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   ignoreFiles: [
     '**/*.js',
     '**/*.ts',
@@ -12,10 +9,7 @@ module.exports = {
   ],
   plugins: ['stylelint-order'],
   rules: {
-    'declaration-empty-line-before': 'never',
-    indentation: 2,
-    'no-missing-end-of-source-newline': null,
-    'order/properties-alphabetical-order': true,
     'string-quotes': 'single',
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
   },
 };

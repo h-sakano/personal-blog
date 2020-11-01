@@ -1,11 +1,11 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
 import { Breadcrumb, Typography } from 'antd';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import { graphql, Link } from 'gatsby';
+import React from 'react';
 import { TagQuery } from '../../types/graphql-types';
-import { TagsPageContext } from '../gatsby-node';
+import Layout from '../components/Layout';
 import PostsList from '../components/PostsList';
+import SEO from '../components/SEO';
+import { TagsPageContext } from '../gatsby-node';
 
 interface Props {
   data: TagQuery;
@@ -26,16 +26,24 @@ const Tag: React.FC<Props> = ({ data, pageContext }) => {
         <Typography.Title level={2}>
           「{pageContext.name}」についての投稿一覧
         </Typography.Title>
-        <PostsList data={data} />
+        <PostsList
+          baseUrl={`/tags/${pageContext.tagsId}`}
+          data={data}
+          limit={pageContext.limit}
+          page={pageContext.page}
+          totalCount={pageContext.totalCount}
+        />
       </div>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query Tag($tagsId: String) {
+  query Tag($limit: Int, $skip: Int, $tagsId: String) {
     allMicrocmsPosts(
       filter: { tags: { elemMatch: { id: { eq: $tagsId } } } }
+      limit: $limit
+      skip: $skip
       sort: { fields: [publishedAt], order: DESC }
     ) {
       edges {
