@@ -1,8 +1,8 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { Card, Space } from 'antd';
 import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
+import { Card, Space } from 'antd';
+import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import React from 'react';
 import styles from './Profile.module.css';
 
 const Profile = () => {

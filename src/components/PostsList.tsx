@@ -1,5 +1,5 @@
-import React from 'react';
 import { List } from 'antd';
+import React from 'react';
 import { PostsQuery, TagQuery } from '../../types/graphql-types';
 import PostsListItem from './PostsListItem';
 

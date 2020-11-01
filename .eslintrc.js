@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
-    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -38,7 +37,6 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'import',
-    'jest',
     'jsx-a11y',
     'prefer-arrow',
     'prettier',
