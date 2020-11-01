@@ -1,9 +1,9 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import React from 'react';
 import { PostsQuery } from '../../types/graphql-types';
+import Layout from '../components/Layout';
 import PostsList from '../components/PostsList';
+import SEO from '../components/SEO';
 
 interface Props {
   data: PostsQuery;
@@ -19,8 +19,12 @@ const IndexPage: React.FC<Props> = ({ data }) => {
 };
 
 export const query = graphql`
-  query Posts {
-    allMicrocmsPosts(sort: { fields: [publishedAt], order: DESC }) {
+  query Posts($limit: Int, $skip: Int) {
+    allMicrocmsPosts(
+      limit: $limit
+      skip: $skip
+      sort: { fields: [publishedAt], order: DESC }
+    ) {
       edges {
         node {
           id

@@ -1,6 +1,7 @@
 import { GatsbyNode } from 'gatsby';
 import {
   CreatePagesFromMicroCmsQuery,
+  CreateTagPostsPagesFromMicroCmsQuery,
   CreateTagsPagesFromMicroCmsQuery,
 } from '../types/graphql-types';
 
@@ -10,6 +11,8 @@ const path = require('path');
 export interface TagsPageContext {
   name?: string;
 }
+
+const ListLimit = 5;
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
@@ -25,12 +28,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
             postsId
           }
         }
+        totalCount
       }
     }
   `);
 
   if (result.errors) {
     throw result.errors;
+  }
+
+  const pagesNum = (result.data.allMicrocmsPosts.totalCount - 1) / 5;
+  for (let i = 0; i < pagesNum; i += 1) {
+    const p = i === 0 ? '/' : `/posts/${i + 1}`;
+    createPage({
+      path: p,
+      component: path.resolve('./src/templates/posts.tsx'),
+      context: {
+        limit: ListLimit,
+        page: i + 1,
+        skip: i * ListLimit,
+      },
+    });
   }
 
   result.data.allMicrocmsPosts.edges.forEach((edge) => {
@@ -56,14 +74,46 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
   `);
 
-  tagsResult.data.allMicrocmsTags.edges.forEach((edge) => {
-    createPage({
-      path: `/tags/${edge.node.tagsId}`,
-      component: path.resolve('./src/templates/tag.tsx'),
-      context: {
-        name: edge.node.name,
-        tagsId: edge.node.tagsId,
-      },
-    });
+  const tagPostsResultsPromise = tagsResult.data.allMicrocmsTags.edges.map(
+    (edge) => {
+      const result = graphql<CreateTagPostsPagesFromMicroCmsQuery>(
+        `
+          query CreateTagPostsPagesFromMicroCms($tagsId: String) {
+            allMicrocmsPosts(
+              filter: { tags: { elemMatch: { id: { eq: $tagsId } } } }
+            ) {
+              totalCount
+            }
+          }
+        `,
+        { tagsId: edge.node.tagsId },
+      );
+
+      return result;
+    },
+  );
+
+  const tagPostsResults = await Promise.all(tagPostsResultsPromise);
+  tagPostsResults.forEach((result, index) => {
+    const pagesNum = (result.data.allMicrocmsPosts.totalCount - 1) / 5;
+    const tagEdge = tagsResult.data.allMicrocmsTags.edges[index];
+
+    for (let i = 0; i < pagesNum; i += 1) {
+      let p = `/tags/${tagEdge.node.tagsId}`;
+      if (i > 0) {
+        p += `/${i + 1}`;
+      }
+      createPage({
+        path: p,
+        component: path.resolve('./src/templates/tag.tsx'),
+        context: {
+          limit: ListLimit,
+          name: tagEdge.node.name,
+          page: i + 1,
+          skip: i * ListLimit,
+          tagsId: tagEdge.node.tagsId,
+        },
+      });
+    }
   });
 };
