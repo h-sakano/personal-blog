@@ -47,7 +47,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     throw result.errors;
   }
 
-  const pagesNum = (result.data.allMicrocmsPosts.totalCount - 1) / 5;
+  const pagesNum =
+    Math.floor((result.data.allMicrocmsPosts.totalCount - 1) / 5) + 1;
   for (let i = 0; i < pagesNum; i += 1) {
     const p = i === 0 ? '/' : `/${i + 1}`;
     createPage({
@@ -106,7 +107,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   const tagPostsResults = await Promise.all(tagPostsResultsPromise);
   tagPostsResults.forEach((result, index) => {
-    const pagesNum = (result.data.allMicrocmsPosts.totalCount - 1) / 5;
+    const pagesNum =
+      Math.floor((result.data.allMicrocmsPosts.totalCount - 1) / 5) + 1;
     const tagEdge = tagsResult.data.allMicrocmsTags.edges[index];
 
     for (let i = 0; i < pagesNum; i += 1) {
