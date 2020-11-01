@@ -9,7 +9,17 @@ import {
 const path = require('path');
 
 export interface TagsPageContext {
-  name?: string;
+  limit: number;
+  name: string;
+  page: number;
+  tagsId: string;
+  totalCount: number;
+}
+
+export interface PostsPageContext {
+  limit: number;
+  page: number;
+  totalCount: number;
 }
 
 const ListLimit = 5;
@@ -39,7 +49,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   const pagesNum = (result.data.allMicrocmsPosts.totalCount - 1) / 5;
   for (let i = 0; i < pagesNum; i += 1) {
-    const p = i === 0 ? '/' : `/posts/${i + 1}`;
+    const p = i === 0 ? '/' : `/${i + 1}`;
     createPage({
       path: p,
       component: path.resolve('./src/templates/posts.tsx'),
@@ -47,6 +57,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         limit: ListLimit,
         page: i + 1,
         skip: i * ListLimit,
+        totalCount: result.data.allMicrocmsPosts.totalCount,
       },
     });
   }
@@ -112,6 +123,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
           page: i + 1,
           skip: i * ListLimit,
           tagsId: tagEdge.node.tagsId,
+          totalCount: result.data.allMicrocmsPosts.totalCount,
         },
       });
     }

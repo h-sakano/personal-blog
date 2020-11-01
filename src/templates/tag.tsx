@@ -26,7 +26,13 @@ const Tag: React.FC<Props> = ({ data, pageContext }) => {
         <Typography.Title level={2}>
           「{pageContext.name}」についての投稿一覧
         </Typography.Title>
-        <PostsList data={data} />
+        <PostsList
+          baseUrl={`/tags/${pageContext.tagsId}`}
+          data={data}
+          limit={pageContext.limit}
+          page={pageContext.page}
+          totalCount={pageContext.totalCount}
+        />
       </div>
     </Layout>
   );

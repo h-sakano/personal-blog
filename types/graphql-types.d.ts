@@ -2433,6 +2433,7 @@ export type SitePageContext = {
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   skip?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
   postsId?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   tagsId?: Maybe<Scalars['String']>;
@@ -2442,6 +2443,7 @@ export type SitePageContextFilterInput = {
   limit?: Maybe<IntQueryOperatorInput>;
   page?: Maybe<IntQueryOperatorInput>;
   skip?: Maybe<IntQueryOperatorInput>;
+  totalCount?: Maybe<IntQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   tagsId?: Maybe<StringQueryOperatorInput>;
@@ -2549,6 +2551,7 @@ export type SitePageFieldsEnum =
   | 'context___limit'
   | 'context___page'
   | 'context___skip'
+  | 'context___totalCount'
   | 'context___postsId'
   | 'context___name'
   | 'context___tagsId'
