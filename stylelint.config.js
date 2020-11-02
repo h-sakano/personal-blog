@@ -10,6 +10,18 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     'string-quotes': 'single',
-    'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'apply',
+          'layer',
+          'responsive',
+          'screen',
+          'tailwind',
+          'variants',
+        ],
+      },
+    ],
   },
 };
