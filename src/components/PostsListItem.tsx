@@ -5,7 +5,6 @@ import {
   MicrocmsPostsTags,
   MicrocmsPostsThumbnail,
 } from '../../types/graphql-types';
-import styles from './PostsListItem.module.css';
 import PublishedAt from './PublishedAt';
 
 interface Props {
@@ -28,13 +27,13 @@ const PostListItem: React.FC<Props> = ({
   title,
 }) => (
   <List.Item
-    className={styles.item}
+    className="border-b border-gray-300"
     extra={
       thumbnail?.url && (
         <Link to={`/posts/${postsId}`}>
           <img
             alt="thumbnail"
-            className={styles.thumbnail}
+            className="object-cover"
             height={123}
             src={thumbnail?.url}
             width={200}
@@ -43,17 +42,15 @@ const PostListItem: React.FC<Props> = ({
       )
     }
   >
-    <article>
+    <article className="flex-1">
       <PublishedAt
         publishedAt={publishedAt}
         publishedAtOnHatena={publishedAtOnHatena}
       />
       <br />
-      <Typography.Title level={2}>
-        <Link className={styles.title} to={`/posts/${postsId}`}>
-          {title}
-        </Link>
-      </Typography.Title>
+      <h2 className="text-2xl">
+        <Link to={`/posts/${postsId}`}>{title}</Link>
+      </h2>
       <Space direction="vertical">
         <div>
           {tags?.map((tag) => (
@@ -63,7 +60,7 @@ const PostListItem: React.FC<Props> = ({
           ))}
         </div>
         <Typography.Paragraph
-          className={styles.description}
+          className="whitespace-pre-wrap"
           ellipsis={{ rows: 2, symbol: 'more' }}
         >
           {description}

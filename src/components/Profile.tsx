@@ -1,9 +1,8 @@
 import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
-import { Card, Space } from 'antd';
+import { Card } from 'antd';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
-import styles from './Profile.module.css';
 
 const Profile = () => {
   const data = useStaticQuery(graphql`
@@ -19,35 +18,31 @@ const Profile = () => {
   `);
 
   return (
-    <Card className={styles.profile} title="プロフィール" bordered={false}>
-      <div className={styles.avatarContainer}>
+    <Card className="w-full" title="プロフィール" bordered={false}>
+      <div className="flex items-center">
         <Img
           alt="プロフィール画像"
-          className={styles.avatar}
+          className="block rounded-full"
           fixed={data.avatar.childImageSharp.fixed}
         />
-        <div className={styles.profileText}>
+        <div className="flex-1 ml-3">
           <a
-            className={styles.snsContainer}
+            className="flex items-center"
             href="https://twitter.com/h_sakano"
             rel="noreferrer noopener"
             target="_blank"
           >
-            <Space>
-              <TwitterOutlined className={styles.twitter} />
-              @h_sakano
-            </Space>
+            <TwitterOutlined className="text-xl text-twitter" />
+            <span className="ml-2 text-coloredLink">@h_sakano</span>
           </a>
           <a
-            className={styles.snsContainer}
+            className="flex items-center"
             href="https://github.com/h-sakano"
             rel="noreferrer noopener"
             target="_blank"
           >
-            <Space>
-              <GithubOutlined className={styles.github} />
-              @h-sakano
-            </Space>
+            <GithubOutlined className="text-xl text-github" />
+            <span className="ml-2 text-coloredLink">@h-sakano</span>
           </a>
         </div>
       </div>

@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ description, siteTitle }) => (
   <header className="text-center">
     <h1>
-      <Link className="text-current" to="/">
+      <Link className="text-4xl text-current" to="/">
         {siteTitle}
       </Link>
     </h1>

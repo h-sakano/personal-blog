@@ -1,5 +1,4 @@
 import { CalendarOutlined } from '@ant-design/icons';
-import { Space, Typography } from 'antd';
 import format from 'date-fns/format';
 import React from 'react';
 
@@ -12,12 +11,10 @@ const PublishedAt: React.FC<Props> = ({ publishedAt, publishedAtOnHatena }) => {
   const at = publishedAtOnHatena ?? publishedAt;
 
   return (
-    <Typography.Text>
-      <Space>
-        <CalendarOutlined />
-        <div>{format(new Date(at), 'yyyy年MM月dd日')}</div>
-      </Space>
-    </Typography.Text>
+    <div className="inline-flex items-center">
+      <CalendarOutlined />
+      <div className="ml-2">{format(new Date(at), 'yyyy年MM月dd日')}</div>
+    </div>
   );
 };
 

@@ -11,6 +11,7 @@ import { SiteTitleQuery } from '../../types/graphql-types';
 import Header from './Header';
 import Profile from './Profile';
 import TwitterWidget from './TwitterWidget';
+import '../styles/tailwind.css';
 
 const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const data = useStaticQuery<SiteTitleQuery>(graphql`

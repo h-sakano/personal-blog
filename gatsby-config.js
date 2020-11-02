@@ -10,9 +10,7 @@ module.exports = {
     siteUrl: 'https://blog.h-sakano.dev/',
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-antd',
-    },
+    'gatsby-plugin-antd',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
