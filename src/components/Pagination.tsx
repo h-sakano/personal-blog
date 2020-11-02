@@ -17,10 +17,10 @@ const Pagination: React.FC<PaginationProps> = ({
   itemPerPage,
   page,
 }) => {
-  const pageCount = useMemo(() => Math.floor((itemCount - 1) / itemPerPage), [
-    itemCount,
-    itemPerPage,
-  ]);
+  const pageCount = useMemo(
+    () => Math.floor((itemCount - 1) / itemPerPage) + 1,
+    [itemCount, itemPerPage],
+  );
   const trimmedbaseUrl = useMemo(() => baseUrl.replace(new RegExp('/$'), ''), [
     baseUrl,
   ]);
@@ -91,7 +91,9 @@ const Pagination: React.FC<PaginationProps> = ({
             <span className="font-medium">{itemCount}</span>件中
             <span className="font-medium">{itemPerPage * (page - 1) + 1}</span>
             件から
-            <span className="font-medium">{itemPerPage * page}</span>
+            <span className="font-medium">
+              {Math.min(itemCount, itemPerPage * page)}
+            </span>
             件を表示中
           </p>
         </div>
@@ -153,14 +155,15 @@ const Pagination: React.FC<PaginationProps> = ({
                       ...
                     </span>
                   )}
-                  {(p === 2 || p === pageCount - sidesNumMd + 1) && (
-                    <Link
-                      to={`${trimmedbaseUrl}/${p}`}
-                      className="hidden md:inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                    >
-                      {p}
-                    </Link>
-                  )}
+                  {pageCount >= sidesNumMd * 2 &&
+                    (p === 2 || p === pageCount - sidesNumMd + 1) && (
+                      <Link
+                        to={`${trimmedbaseUrl}/${p}`}
+                        className="hidden md:inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                      >
+                        {p}
+                      </Link>
+                    )}
                   {(p < 2 || p > pageCount - sidesNumMd + 1) && (
                     <Link
                       to={
