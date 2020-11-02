@@ -1,5 +1,5 @@
 {
-  "css.validate": true,
+  "css.validate": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -14,9 +14,8 @@
     "**/build/**": true,
     "**/coverage/**": true
   },
-  "stylelint.configOverrides": {
-    "ignoreFiles": ["node_modules/**/*.*"]
-  },
+  "less.validate": false,
+  "scss.validate": false,
   "stylelint.enable": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

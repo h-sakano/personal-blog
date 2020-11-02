@@ -79,7 +79,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {page + 1 <= pageCount && (
           <Link
             to={`${trimmedbaseUrl}/${page + 1}`}
-            className="ml-3 inline-flex items-center ml-auto px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+            className="inline-flex items-center ml-auto px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
           >
             次へ
           </Link>
@@ -98,7 +98,10 @@ const Pagination: React.FC<PaginationProps> = ({
           </p>
         </div>
         <div>
-          <nav className="z-0 inline-flex shadow-sm">
+          <nav
+            className="z-0 inline-flex shadow-sm"
+            data-testid="Pagination-nav"
+          >
             {page - 1 >= 1 && (
               <Link
                 to={
