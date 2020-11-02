@@ -44,7 +44,7 @@ const Post: React.FC<Props> = ({ data }) => {
         )}
         <Breadcrumb.Item>{data.microcmsPosts.title}</Breadcrumb.Item>
       </Breadcrumb>
-      <article className="content">
+      <article className="mt-5">
         <PublishedAt
           publishedAt={data.microcmsPosts.publishedAt}
           publishedAtOnHatena={data.microcmsPosts.publishedAtOnHatena}

@@ -22,7 +22,7 @@ const Tag: React.FC<Props> = ({ data, pageContext }) => {
         </Breadcrumb.Item>
         <Breadcrumb.Item>{pageContext.name}</Breadcrumb.Item>
       </Breadcrumb>
-      <div className="content">
+      <div className="mt-5">
         <Typography.Title level={2}>
           「{pageContext.name}」についての投稿一覧
         </Typography.Title>
