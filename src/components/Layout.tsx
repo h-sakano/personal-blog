@@ -26,7 +26,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   `);
 
   return (
-    <div className="flex flex-col mx-auto max-w-screen-lg min-h-screen p-2 pt-5">
+    <div className="font-blog flex flex-col mx-auto max-w-screen-lg min-h-screen p-2 pt-5">
       <Header
         description={data.site.siteMetadata.description}
         siteTitle={data.site.siteMetadata.title}
@@ -46,6 +46,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
         <div className="mt-3">
           ©&nbsp;2018-{new Date().getFullYear()}&nbsp;
           <a
+            className="text-coloredLink"
             href="https://twitter.com/h_sakano"
             rel="noreferrer noopener"
             target="_blank"

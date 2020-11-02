@@ -57,7 +57,7 @@ const Post: React.FC<Props> = ({ data }) => {
           </Tag>
         ))}
         <div
-          className={styles.body}
+          className={`mt-5 ${styles.body}`}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: data.microcmsPosts.body }}
         />
