@@ -5,18 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { Space } from 'antd';
 import { useStaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SiteTitleQuery } from '../../types/graphql-types';
 import Header from './Header';
-import styles from './Layout.module.css';
 import Profile from './Profile';
-import './Layout.css';
 import TwitterWidget from './TwitterWidget';
 
-const Layout = ({ children }) => {
+const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const data = useStaticQuery<SiteTitleQuery>(graphql`
     query SiteTitle {
       site {
@@ -29,22 +25,24 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <div className={styles.wrapper}>
+    <div className="flex flex-col mx-auto max-w-screen-lg min-h-screen p-2 pt-5">
       <Header
         description={data.site.siteMetadata.description}
         siteTitle={data.site.siteMetadata.title}
       />
-      <div className={styles.container}>
-        <main className={styles.main}>{children}</main>
-        <aside className={styles.sider}>
-          <Space className={styles.space} direction="vertical">
+      <div className="md:flex">
+        <main className="mt-3 w-full md:flex-1">{children}</main>
+        <aside className="mt-3 md:ml-2 w-full md:w-64">
+          <div className="w-full">
             <Profile />
-            <TwitterWidget />
-          </Space>
+            <div className="mt-2">
+              <TwitterWidget />
+            </div>
+          </div>
         </aside>
       </div>
-      <footer className={styles.footer}>
-        <div className={styles.footerContent}>
+      <footer className="mt-auto text-center">
+        <div className="mt-3">
           ©&nbsp;2018-{new Date().getFullYear()}&nbsp;
           <a
             href="https://twitter.com/h_sakano"
@@ -57,10 +55,6 @@ const Layout = ({ children }) => {
       </footer>
     </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

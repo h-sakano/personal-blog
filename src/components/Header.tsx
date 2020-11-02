@@ -1,7 +1,5 @@
-import { Typography } from 'antd';
 import { Link } from 'gatsby';
 import React from 'react';
-import styles from './Header.module.css';
 
 interface HeaderProps {
   description?: string;
@@ -9,13 +7,13 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ description, siteTitle }) => (
-  <header className={styles.header}>
-    <Typography.Title>
-      <Link to="/" className={styles.link}>
+  <header className="text-center">
+    <h1>
+      <Link className="text-current" to="/">
         {siteTitle}
       </Link>
-    </Typography.Title>
-    <Typography.Text>{description}</Typography.Text>
+    </h1>
+    <div className="mt-2 text-gray-600">{description}</div>
   </header>
 );
 

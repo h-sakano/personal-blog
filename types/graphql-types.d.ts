@@ -2596,8 +2596,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___lessOptions___javascriptEnabled'
-  | 'pluginCreator___pluginOptions___style'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___short_name'
@@ -2808,21 +2806,6 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
-  | 'pluginOptions___lessOptions___javascriptEnabled'
-  | 'pluginOptions___lessOptions___modifyVars___primary_color'
-  | 'pluginOptions___lessOptions___modifyVars___link_color'
-  | 'pluginOptions___lessOptions___modifyVars___success_color'
-  | 'pluginOptions___lessOptions___modifyVars___warning_color'
-  | 'pluginOptions___lessOptions___modifyVars___error_color'
-  | 'pluginOptions___lessOptions___modifyVars___font_size_base'
-  | 'pluginOptions___lessOptions___modifyVars___heading_color'
-  | 'pluginOptions___lessOptions___modifyVars___text_color'
-  | 'pluginOptions___lessOptions___modifyVars___text_color_secondary'
-  | 'pluginOptions___lessOptions___modifyVars___disabled_color'
-  | 'pluginOptions___lessOptions___modifyVars___border_radius_base'
-  | 'pluginOptions___lessOptions___modifyVars___border_color_base'
-  | 'pluginOptions___lessOptions___modifyVars___box_shadow_base'
-  | 'pluginOptions___style'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___short_name'
@@ -2961,8 +2944,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-  lessOptions?: Maybe<SitePluginPluginOptionsLessOptions>;
-  style?: Maybe<Scalars['Boolean']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   short_name?: Maybe<Scalars['String']>;
@@ -3000,8 +2981,6 @@ export type SitePluginPluginOptionsApisFilterListInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
-  lessOptions?: Maybe<SitePluginPluginOptionsLessOptionsFilterInput>;
-  style?: Maybe<BooleanQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
@@ -3024,48 +3003,6 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsLessOptions = {
-  javascriptEnabled?: Maybe<Scalars['Boolean']>;
-  modifyVars?: Maybe<SitePluginPluginOptionsLessOptionsModifyVars>;
-};
-
-export type SitePluginPluginOptionsLessOptionsFilterInput = {
-  javascriptEnabled?: Maybe<BooleanQueryOperatorInput>;
-  modifyVars?: Maybe<SitePluginPluginOptionsLessOptionsModifyVarsFilterInput>;
-};
-
-export type SitePluginPluginOptionsLessOptionsModifyVars = {
-  primary_color?: Maybe<Scalars['String']>;
-  link_color?: Maybe<Scalars['String']>;
-  success_color?: Maybe<Scalars['String']>;
-  warning_color?: Maybe<Scalars['String']>;
-  error_color?: Maybe<Scalars['String']>;
-  font_size_base?: Maybe<Scalars['String']>;
-  heading_color?: Maybe<Scalars['String']>;
-  text_color?: Maybe<Scalars['String']>;
-  text_color_secondary?: Maybe<Scalars['String']>;
-  disabled_color?: Maybe<Scalars['String']>;
-  border_radius_base?: Maybe<Scalars['String']>;
-  border_color_base?: Maybe<Scalars['String']>;
-  box_shadow_base?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsLessOptionsModifyVarsFilterInput = {
-  primary_color?: Maybe<StringQueryOperatorInput>;
-  link_color?: Maybe<StringQueryOperatorInput>;
-  success_color?: Maybe<StringQueryOperatorInput>;
-  warning_color?: Maybe<StringQueryOperatorInput>;
-  error_color?: Maybe<StringQueryOperatorInput>;
-  font_size_base?: Maybe<StringQueryOperatorInput>;
-  heading_color?: Maybe<StringQueryOperatorInput>;
-  text_color?: Maybe<StringQueryOperatorInput>;
-  text_color_secondary?: Maybe<StringQueryOperatorInput>;
-  disabled_color?: Maybe<StringQueryOperatorInput>;
-  border_radius_base?: Maybe<StringQueryOperatorInput>;
-  border_color_base?: Maybe<StringQueryOperatorInput>;
-  box_shadow_base?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
