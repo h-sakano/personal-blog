@@ -98,7 +98,10 @@ const Pagination: React.FC<PaginationProps> = ({
           </p>
         </div>
         <div>
-          <nav className="z-0 inline-flex shadow-sm">
+          <nav
+            className="z-0 inline-flex shadow-sm"
+            data-testid="Pagination-nav"
+          >
             {page - 1 >= 1 && (
               <Link
                 to={
