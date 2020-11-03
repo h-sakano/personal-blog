@@ -37,6 +37,7 @@ const PostsList: React.FC<Props> = ({
             title={item.node.title}
           />
         )}
+        split={false}
       />
       <Pagination
         baseUrl={baseUrl}
