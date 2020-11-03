@@ -2861,6 +2861,98 @@ export type QueryAllFeedQiitaPostArgs = {
 };
 
 
+export type QueryFeedZennPostMetaArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  image?: Maybe<FeedZennPostMetaImageFilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  generator?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+  language?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  lastBuildDate?: Maybe<StringQueryOperatorInput>;
+  docs?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllFeedZennPostMetaArgs = {
+  filter?: Maybe<FeedZennPostMetaFilterInput>;
+  sort?: Maybe<FeedZennPostMetaSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryFeedZennPostArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+  pubDate?: Maybe<StringQueryOperatorInput>;
+  enclosure?: Maybe<FeedZennPostEnclosureFilterInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  contentSnippet?: Maybe<StringQueryOperatorInput>;
+  guid?: Maybe<StringQueryOperatorInput>;
+  isoDate?: Maybe<DateQueryOperatorInput>;
+};
+
+
+export type QueryAllFeedZennPostArgs = {
+  filter?: Maybe<FeedZennPostFilterInput>;
+  sort?: Maybe<FeedZennPostSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryFeedQiitaPostMetaArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+  feedUrl?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  lastBuildDate?: Maybe<DateQueryOperatorInput>;
+};
+
+
+export type QueryAllFeedQiitaPostMetaArgs = {
+  filter?: Maybe<FeedQiitaPostMetaFilterInput>;
+  sort?: Maybe<FeedQiitaPostMetaSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryFeedQiitaPostArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+  pubDate?: Maybe<DateQueryOperatorInput>;
+  author?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  contentSnippet?: Maybe<StringQueryOperatorInput>;
+  isoDate?: Maybe<DateQueryOperatorInput>;
+};
+
+
+export type QueryAllFeedQiitaPostArgs = {
+  filter?: Maybe<FeedQiitaPostFilterInput>;
+  sort?: Maybe<FeedQiitaPostSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryMicrocmsTagsArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3312,21 +3404,97 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  posts?: Maybe<Array<Maybe<SitePageContextPosts>>>;
   totalCount?: Maybe<Scalars['Int']>;
   postsId?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  skip?: Maybe<Scalars['Int']>;
   tagsId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   limit?: Maybe<IntQueryOperatorInput>;
   page?: Maybe<IntQueryOperatorInput>;
-  skip?: Maybe<IntQueryOperatorInput>;
+  posts?: Maybe<SitePageContextPostsFilterListInput>;
   totalCount?: Maybe<IntQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  skip?: Maybe<IntQueryOperatorInput>;
   tagsId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextPosts = {
+  node?: Maybe<SitePageContextPostsNode>;
+};
+
+export type SitePageContextPostsFilterInput = {
+  node?: Maybe<SitePageContextPostsNodeFilterInput>;
+};
+
+export type SitePageContextPostsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsFilterInput>;
+};
+
+export type SitePageContextPostsNode = {
+  contentSnippet?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  internal?: Maybe<SitePageContextPostsNodeInternal>;
+  isoDate?: Maybe<Scalars['Date']>;
+  link?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  postsId?: Maybe<Scalars['String']>;
+  publishedAt?: Maybe<Scalars['Date']>;
+  publishedAtOnHatena?: Maybe<Scalars['Date']>;
+  tags?: Maybe<Array<Maybe<SitePageContextPostsNodeTags>>>;
+  thumbnail?: Maybe<SitePageContextPostsNodeThumbnail>;
+};
+
+export type SitePageContextPostsNodeFilterInput = {
+  contentSnippet?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  internal?: Maybe<SitePageContextPostsNodeInternalFilterInput>;
+  isoDate?: Maybe<DateQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  postsId?: Maybe<StringQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
+  tags?: Maybe<SitePageContextPostsNodeTagsFilterListInput>;
+  thumbnail?: Maybe<SitePageContextPostsNodeThumbnailFilterInput>;
+};
+
+export type SitePageContextPostsNodeInternal = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextPostsNodeInternalFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextPostsNodeTags = {
+  color?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextPostsNodeTagsFilterInput = {
+  color?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextPostsNodeTagsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsNodeTagsFilterInput>;
+};
+
+export type SitePageContextPostsNodeThumbnail = {
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextPostsNodeThumbnailFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -3430,10 +3598,21 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___limit'
   | 'context___page'
-  | 'context___skip'
+  | 'context___posts'
+  | 'context___posts___node___contentSnippet'
+  | 'context___posts___node___id'
+  | 'context___posts___node___isoDate'
+  | 'context___posts___node___link'
+  | 'context___posts___node___title'
+  | 'context___posts___node___description'
+  | 'context___posts___node___postsId'
+  | 'context___posts___node___publishedAt'
+  | 'context___posts___node___publishedAtOnHatena'
+  | 'context___posts___node___tags'
   | 'context___totalCount'
   | 'context___postsId'
   | 'context___name'
+  | 'context___skip'
   | 'context___tagsId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
@@ -3984,10 +4163,16 @@ export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type CreatePagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: (
-    Pick<MicrocmsPostsConnection, 'totalCount'>
-    & { edges: Array<{ node: Pick<MicrocmsPosts, 'postsId'> }> }
-  ) };
+export type CreatePagesFromMicroCmsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
+        Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
+        & { internal: Pick<Internal, 'type'>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
+      ) }> }, allFeedQiitaPost: { edges: Array<{ node: (
+        Pick<FeedQiitaPost, 'contentSnippet' | 'id' | 'isoDate' | 'link' | 'title'>
+        & { internal: Pick<Internal, 'type'> }
+      ) }> }, allFeedZennPost: { edges: Array<{ node: (
+        Pick<FeedZennPost, 'contentSnippet' | 'id' | 'isoDate' | 'link' | 'title'>
+        & { internal: Pick<Internal, 'type'> }
+      ) }> } };
 
 export type CreateTagsPagesFromMicroCmsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4011,17 +4196,6 @@ export type PostQuery = { microcmsPosts?: Maybe<(
     & { thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
   )> };
 
-export type PostsQueryVariables = Exact<{
-  limit?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
-}>;
-
-
-export type PostsQuery = { allMicrocmsPosts: { edges: Array<{ node: (
-        Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
-      ) }> } };
-
 export type TagQueryVariables = Exact<{
   limit?: Maybe<Scalars['Int']>;
   skip?: Maybe<Scalars['Int']>;
@@ -4031,7 +4205,7 @@ export type TagQueryVariables = Exact<{
 
 export type TagQuery = { allMicrocmsPosts: { edges: Array<{ node: (
         Pick<MicrocmsPosts, 'id' | 'description' | 'postsId' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-        & { tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
+        & { internal: Pick<Internal, 'type'>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>> }
       ) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;

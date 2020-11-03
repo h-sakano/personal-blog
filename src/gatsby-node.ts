@@ -4,6 +4,8 @@ import {
   CreateTagPostsPagesFromMicroCmsQuery,
   CreateTagsPagesFromMicroCmsQuery,
 } from '../types/graphql-types';
+import { isMicrocmsPost } from './typeGuards';
+import { PostType } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
@@ -19,10 +21,16 @@ export interface TagsPageContext {
 export interface PostsPageContext {
   limit: number;
   page: number;
+  posts: Array<PostType>;
   totalCount: number;
 }
 
 const ListLimit = 5;
+
+const getPublishedAt = (post: PostType): Date =>
+  isMicrocmsPost(post)
+    ? new Date(post.node.publishedAtOnHatena ?? post.node.publishedAt)
+    : new Date(post.node.isoDate);
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
@@ -32,13 +40,56 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   const result = await graphql<CreatePagesFromMicroCmsQuery>(`
     query CreatePagesFromMicroCms {
-      allMicrocmsPosts {
+      allMicrocmsPosts(sort: { fields: [publishedAt], order: DESC }) {
         edges {
           node {
+            id
+            internal {
+              type
+            }
+            description
             postsId
+            publishedAt
+            publishedAtOnHatena
+            title
+            tags {
+              color
+              id
+              name
+            }
+            thumbnail {
+              url
+            }
           }
         }
-        totalCount
+      }
+      allFeedQiitaPost {
+        edges {
+          node {
+            contentSnippet
+            id
+            internal {
+              type
+            }
+            isoDate
+            link
+            title
+          }
+        }
+      }
+      allFeedZennPost {
+        edges {
+          node {
+            contentSnippet
+            id
+            internal {
+              type
+            }
+            isoDate
+            link
+            title
+          }
+        }
       }
     }
   `);
@@ -47,18 +98,25 @@ export const createPages: GatsbyNode['createPages'] = async ({
     throw result.errors;
   }
 
-  const pagesNum =
-    Math.floor((result.data.allMicrocmsPosts.totalCount - 1) / 5) + 1;
+  const posts = [
+    ...result.data.allMicrocmsPosts.edges,
+    ...result.data.allFeedQiitaPost.edges,
+    ...result.data.allFeedZennPost.edges,
+  ].sort((a, b) => getPublishedAt(b).getTime() - getPublishedAt(a).getTime());
+  const totalCount = posts.length;
+
+  const pagesNum = Math.floor((totalCount - 1) / 5) + 1;
   for (let i = 0; i < pagesNum; i += 1) {
-    const p = i === 0 ? '/' : `/${i + 1}`;
+    const urlPath = i === 0 ? '/' : `/${i + 1}`;
+    const skip = i * ListLimit;
     createPage({
-      path: p,
+      path: urlPath,
       component: path.resolve('./src/templates/posts.tsx'),
       context: {
         limit: ListLimit,
         page: i + 1,
-        skip: i * ListLimit,
-        totalCount: result.data.allMicrocmsPosts.totalCount,
+        posts: posts.slice(skip, Math.min(totalCount, skip + ListLimit)),
+        totalCount,
       },
     });
   }
