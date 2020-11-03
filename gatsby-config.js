@@ -55,6 +55,20 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-rss-feed',
+      options: {
+        url: 'https://qiita.com/h-sakano/feed',
+        name: 'QiitaPost',
+      }
+    },
+    {
+      resolve: 'gatsby-source-rss-feed',
+      options: {
+        url: 'https://zenn.dev/h_sakano/feed',
+        name: 'ZennPost',
+      }
+    },
+    {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {
         fileName: `types/graphql-types.d.ts`
