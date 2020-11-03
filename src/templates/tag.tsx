@@ -28,7 +28,7 @@ const Tag: React.FC<Props> = ({ data, pageContext }) => {
         </Typography.Title>
         <PostsList
           baseUrl={`/tags/${pageContext.tagsId}`}
-          data={data}
+          data={data.allMicrocmsPosts.edges}
           limit={pageContext.limit}
           page={pageContext.page}
           totalCount={pageContext.totalCount}
@@ -49,6 +49,9 @@ export const query = graphql`
       edges {
         node {
           id
+          internal {
+            type
+          }
           description
           postsId
           publishedAt

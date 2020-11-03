@@ -1,3 +1,4 @@
+import { ExportOutlined } from '@ant-design/icons';
 import { List, Space, Tag, Typography } from 'antd';
 import { Link } from 'gatsby';
 import React from 'react';
@@ -9,6 +10,8 @@ import PublishedAt from './PublishedAt';
 
 interface Props {
   description?: string;
+  internalType?: string;
+  link?: string;
   postsId?: string;
   publishedAt?: string;
   publishedAtOnHatena?: string;
@@ -19,6 +22,8 @@ interface Props {
 
 const PostListItem: React.FC<Props> = ({
   description,
+  internalType,
+  link,
   postsId,
   publishedAt,
   publishedAtOnHatena,
@@ -49,10 +54,19 @@ const PostListItem: React.FC<Props> = ({
       />
       <br />
       <h2 className="text-2xl">
-        <Link to={`/posts/${postsId}`}>{title}</Link>
+        {link ? (
+          <a href={link} target="_blank" rel="nofollow noopener noreferrer">
+            <ExportOutlined className="inline-flex mr-2" />
+            {title}
+          </a>
+        ) : (
+          <Link to={`/posts/${postsId}`}>{title}</Link>
+        )}
       </h2>
       <Space direction="vertical">
         <div>
+          {internalType === 'FeedQiitaPost' && <Tag color="#00CA00">Qiita</Tag>}
+          {internalType === 'FeedZennPost' && <Tag color="#3ea8ff">Zenn</Tag>}
           {tags?.map((tag) => (
             <Tag color={tag.color} key={tag.id}>
               <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
