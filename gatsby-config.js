@@ -20,7 +20,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-css-modules-typings`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

@@ -5,7 +5,7 @@ import { PostQuery } from '../../types/graphql-types';
 import Layout from '../components/Layout';
 import PublishedAt from '../components/PublishedAt';
 import SEO from '../components/SEO';
-import styles from './post.module.css';
+import './post.css';
 
 interface Props {
   data: PostQuery;
@@ -57,7 +57,7 @@ const Post: React.FC<Props> = ({ data }) => {
           </Tag>
         ))}
         <div
-          className={`mt-5 ${styles.body}`}
+          className="post-body leading-7 mt-5"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: data.microcmsPosts.body }}
         />
