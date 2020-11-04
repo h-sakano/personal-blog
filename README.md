@@ -1,5 +1,7 @@
 # 個人ブログ
 
+[![codecov](https://codecov.io/gh/h-sakano/personal-blog/branch/master/graph/badge.svg?token=UKCAW2CK6E)](https://codecov.io/gh/h-sakano/personal-blog)
+
 GatsbyとmicroCMSを使ったJAMStack構成の個人ブログです。
 
 ## URL
