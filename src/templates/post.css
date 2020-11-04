@@ -1,43 +1,39 @@
-* {
+.post-body * {
   max-width: 100%;
 }
 
-.body {
-  line-height: 1.9;
-}
-
-.body h1 {
+.post-body h1 {
   @apply text-3xl mt-3;
 }
 
-.body h2 {
+.post-body h2 {
   @apply text-2xl mt-2;
 }
 
-.body h3 {
+.post-body h3 {
   @apply text-xl mt-2;
 }
 
-.body h4 {
+.post-body h4 {
   @apply text-lg mt-1;
 }
 
-.body h5 {
+.post-body h5 {
   @apply text-base mt-1;
 }
 
-.body ul {
+.post-body ul {
   @apply list-disc list-inside ml-5;
 }
 
-.body :not(pre) > code {
+.post-body :not(pre) > code {
   padding: 0 5px;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.body pre {
+.post-body pre {
   padding: 20px;
   word-break: break-word;
   white-space: pre-wrap;
@@ -46,7 +42,7 @@
   border-radius: 5px;
 }
 
-.body blockquote {
+.post-body blockquote {
   padding-left: 16px;
   border-left: 4px solid #ccc;
 }
