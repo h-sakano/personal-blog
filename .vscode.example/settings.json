@@ -9,11 +9,6 @@
   "eslint.packageManager": "yarn",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "files.watcherExclude": {
-    "**/__generated__/**": true,
-    "**/build/**": true,
-    "**/coverage/**": true
-  },
   "less.validate": false,
   "scss.validate": false,
   "stylelint.enable": true,
