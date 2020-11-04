@@ -10,6 +10,7 @@ import React, { ReactNode } from 'react';
 import { SiteTitleQuery } from '../../types/graphql-types';
 import Header from './Header';
 import Profile from './Profile';
+import SourceCode from './SourceCode';
 import TwitterWidget from './TwitterWidget';
 import '../styles/tailwind.css';
 
@@ -37,6 +38,9 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
           <div className="w-full">
             <Profile />
             <div className="mt-2">
+              <SourceCode />
+            </div>
+            <div className="mt-2">
               <TwitterWidget />
             </div>
           </div>
@@ -48,7 +52,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
           <a
             className="text-coloredLink"
             href="https://twitter.com/h_sakano"
-            rel="noreferrer noopener"
+            rel="nofollow noopener noreferrer"
             target="_blank"
           >
             Hiroki&nbsp;Sakano(@h_sakano)
