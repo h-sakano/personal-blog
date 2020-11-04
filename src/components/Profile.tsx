@@ -29,7 +29,7 @@ const Profile = () => {
           <a
             className="flex items-center"
             href="https://twitter.com/h_sakano"
-            rel="noreferrer noopener"
+            rel="nofollow noopener noreferrer"
             target="_blank"
           >
             <TwitterOutlined className="text-xl text-twitter" />
@@ -38,7 +38,7 @@ const Profile = () => {
           <a
             className="flex items-center"
             href="https://github.com/h-sakano"
-            rel="noreferrer noopener"
+            rel="nofollow noopener noreferrer"
             target="_blank"
           >
             <GithubOutlined className="text-xl text-github" />
