@@ -18,6 +18,7 @@ CI/CD|[GitHub Actions](https://github.co.jp/features/actions)
 API|[microCMS](https://microcms.io/)
 ホスティング|[Firebase Hosting](https://firebase.google.com/products/hosting)
 テスト|[Jest](https://jestjs.io/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+カバレッジ計測|[Codecov](https://codecov.io/)
 Linter/Formatter|[ESlint](https://eslint.org/), [Prettier](https://prettier.io/)
 
 [使用技術・サービスについての詳細はこちら](https://blog.h-sakano.dev/posts/gw9pfdnbd)
