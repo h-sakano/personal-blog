@@ -30,7 +30,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install --frozen-lockfile
-    - run: yarn test
+    - run: yarn test --ci --coverage
+    - uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage/lcov.info
     - run: yarn build
       env:
         MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
