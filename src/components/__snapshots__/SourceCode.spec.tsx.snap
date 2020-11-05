@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SourceCode /> should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-card w-full"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          本ブログのソースコード
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <a
+        class="flex items-center text-coloredLink"
+        href="https://github.com/h-sakano/personal-blog"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        h-sakano/personal-blog
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
