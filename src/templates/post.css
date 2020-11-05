@@ -22,6 +22,10 @@
   @apply text-base mt-1;
 }
 
+.post-body a {
+  @apply text-coloredLink;
+}
+
 .post-body ul {
   @apply list-disc list-inside ml-5;
 }
