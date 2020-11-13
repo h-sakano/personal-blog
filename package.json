@@ -19,7 +19,7 @@
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.7.0",
     "gatsby-plugin-sitemap": "^2.6.0",
-    "gatsby-plugin-twitter": "^2.3.12",
+    "gatsby-plugin-twitter": "^2.4.0",
     "gatsby-plugin-typescript": "^2.5.0",
     "gatsby-source-filesystem": "^2.4.2",
     "gatsby-source-microcms": "^1.0.1",
