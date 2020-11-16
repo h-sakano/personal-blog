@@ -21,7 +21,7 @@
     "gatsby-plugin-sitemap": "^2.6.0",
     "gatsby-plugin-twitter": "^2.4.0",
     "gatsby-plugin-typescript": "^2.5.0",
-    "gatsby-source-filesystem": "^2.4.2",
+    "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-microcms": "^1.0.1",
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-transformer-sharp": "^2.6.0",
