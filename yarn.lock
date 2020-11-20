@@ -8607,12 +8607,12 @@ gatsby-plugin-page-creator@^2.4.0:
     graphql "^14.7.0"
     lodash "^4.17.20"
 
-gatsby-plugin-postcss@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-postcss/-/gatsby-plugin-postcss-3.1.0.tgz#cd70237fa024db22cd264215ecf10f48cc3bb666"
-  integrity sha512-T9ad8SfpmPl1Hus5jEirsf/s1p6qJ0UMvFbZoxr/3jLHsj3XdnbkMXy+F99z+2bnpwizxeoQkqf9MRqaaRtjTQ==
+gatsby-plugin-postcss@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-postcss/-/gatsby-plugin-postcss-3.2.0.tgz#79cd1f2c62fc6f8e112232b5ffd3c7ffff3aa033"
+  integrity sha512-0LtpLh+LfoEekGzPzlp7/p1gGKFlZUdbSKLjfkE+Vck+axxWgKwiF9Cmsi9yK+K1ybuqhb/Q48N8Xg2pwChuzg==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.5"
     postcss-loader "^4.0.4"
 
 gatsby-plugin-react-helmet@^3.4.0:
