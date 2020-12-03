@@ -24,7 +24,7 @@
     "gatsby-source-filesystem": "^2.6.1",
     "gatsby-source-microcms": "^1.0.1",
     "gatsby-source-rss-feed": "^1.2.2",
-    "gatsby-transformer-sharp": "^2.7.0",
+    "gatsby-transformer-sharp": "^2.8.0",
     "postcss": "^8.1.10",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
