@@ -1,5 +1,7 @@
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -25,6 +27,16 @@ export type Scalars = {
 
 
 
+
+export type BlurredOptions = {
+  /** Width of the generated low-res preview. Default is 20px */
+  width?: Maybe<Scalars['Int']>;
+  /**
+   * Force the output format for the low-res preview. Default is to use the same
+   * format as the input. You should rarely need to change this
+   */
+  toFormat?: Maybe<ImageFormat>;
+};
 
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>;
@@ -1274,7 +1286,7 @@ export type FileFieldsEnum =
   | 'childImageSharp___sizes___originalName'
   | 'childImageSharp___sizes___presentationWidth'
   | 'childImageSharp___sizes___presentationHeight'
-  | 'childImageSharp___gatsbyImage___imageData'
+  | 'childImageSharp___gatsbyImageData'
   | 'childImageSharp___original___width'
   | 'childImageSharp___original___height'
   | 'childImageSharp___original___src'
@@ -1498,6 +1510,7 @@ export type ImageFit =
 
 export type ImageFormat = 
   | 'NO_CHANGE'
+  | 'AUTO'
   | 'JPG'
   | 'PNG'
   | 'WEBP';
@@ -1510,7 +1523,7 @@ export type ImageLayout =
 export type ImagePlaceholder = 
   | 'DOMINANT_COLOR'
   | 'TRACED_SVG'
-  | 'BASE64'
+  | 'BLURRED'
   | 'NONE';
 
 export type ImageSharp = Node & {
@@ -1520,7 +1533,7 @@ export type ImageSharp = Node & {
   fluid?: Maybe<ImageSharpFluid>;
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ImageSharpSizes>;
-  gatsbyImage?: Maybe<ImageSharpGatsbyImage>;
+  gatsbyImageData: Scalars['JSON'];
   original?: Maybe<ImageSharpOriginal>;
   resize?: Maybe<ImageSharpResize>;
   id: Scalars['ID'];
@@ -1626,34 +1639,24 @@ export type ImageSharpSizesArgs = {
 };
 
 
-export type ImageSharpGatsbyImageArgs = {
+export type ImageSharpGatsbyImageDataArgs = {
   layout?: Maybe<ImageLayout>;
   maxWidth?: Maybe<Scalars['Int']>;
   maxHeight?: Maybe<Scalars['Int']>;
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
   placeholder?: Maybe<ImagePlaceholder>;
+  blurredOptions?: Maybe<BlurredOptions>;
   tracedSVGOptions?: Maybe<Potrace>;
-  webP?: Maybe<Scalars['Boolean']>;
+  formats?: Maybe<Array<Maybe<ImageFormat>>>;
   outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
   sizes?: Maybe<Scalars['String']>;
-  base64Width?: Maybe<Scalars['Int']>;
-  grayscale?: Maybe<Scalars['Boolean']>;
-  jpegProgressive?: Maybe<Scalars['Boolean']>;
-  pngCompressionSpeed?: Maybe<Scalars['Int']>;
-  duotone?: Maybe<DuotoneGradient>;
   quality?: Maybe<Scalars['Int']>;
-  jpegQuality?: Maybe<Scalars['Int']>;
-  pngQuality?: Maybe<Scalars['Int']>;
-  webpQuality?: Maybe<Scalars['Int']>;
-  toFormat?: Maybe<ImageFormat>;
-  toFormatBase64?: Maybe<ImageFormat>;
-  cropFocus?: Maybe<ImageCropFocus>;
-  fit?: Maybe<ImageFit>;
+  jpgOptions?: Maybe<JpgOptions>;
+  pngOptions?: Maybe<PngOptions>;
+  webpOptions?: Maybe<WebPOptions>;
+  transformOptions?: Maybe<TransformOptions>;
   background?: Maybe<Scalars['String']>;
-  rotate?: Maybe<Scalars['Int']>;
-  trim?: Maybe<Scalars['Float']>;
-  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
 
@@ -1751,7 +1754,7 @@ export type ImageSharpFieldsEnum =
   | 'sizes___originalName'
   | 'sizes___presentationWidth'
   | 'sizes___presentationHeight'
-  | 'gatsbyImage___imageData'
+  | 'gatsbyImageData'
   | 'original___width'
   | 'original___height'
   | 'original___src'
@@ -1853,7 +1856,7 @@ export type ImageSharpFilterInput = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
-  gatsbyImage?: Maybe<ImageSharpGatsbyImageFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1916,14 +1919,6 @@ export type ImageSharpFluidFilterInput = {
   originalName?: Maybe<StringQueryOperatorInput>;
   presentationWidth?: Maybe<IntQueryOperatorInput>;
   presentationHeight?: Maybe<IntQueryOperatorInput>;
-};
-
-export type ImageSharpGatsbyImage = {
-  imageData: Scalars['JSON'];
-};
-
-export type ImageSharpGatsbyImageFilterInput = {
-  imageData?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type ImageSharpGroupConnection = {
@@ -2059,6 +2054,11 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
+export type JpgOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  progressive?: Maybe<Scalars['Boolean']>;
+};
+
 
 export type JsonQueryOperatorInput = {
   eq?: Maybe<Scalars['JSON']>;
@@ -2077,12 +2077,13 @@ export type MicrocmsPosts = Node & {
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
+  revisedAt?: Maybe<Scalars['Date']>;
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
+  thumbnail?: Maybe<MicrocmsPostsThumbnail>;
   body?: Maybe<Scalars['String']>;
   postsId?: Maybe<Scalars['String']>;
-  thumbnail?: Maybe<MicrocmsPostsThumbnail>;
   publishedAtOnHatena?: Maybe<Scalars['Date']>;
 };
 
@@ -2104,6 +2105,14 @@ export type MicrocmsPostsUpdatedAtArgs = {
 
 
 export type MicrocmsPostsPublishedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsPostsRevisedAtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2235,6 +2244,7 @@ export type MicrocmsPostsFieldsEnum =
   | 'createdAt'
   | 'updatedAt'
   | 'publishedAt'
+  | 'revisedAt'
   | 'title'
   | 'description'
   | 'tags'
@@ -2244,9 +2254,9 @@ export type MicrocmsPostsFieldsEnum =
   | 'tags___publishedAt'
   | 'tags___name'
   | 'tags___color'
+  | 'thumbnail___url'
   | 'body'
   | 'postsId'
-  | 'thumbnail___url'
   | 'publishedAtOnHatena';
 
 export type MicrocmsPostsFilterInput = {
@@ -2257,12 +2267,13 @@ export type MicrocmsPostsFilterInput = {
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
+  revisedAt?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
+  thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   body?: Maybe<StringQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
-  thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
@@ -2343,8 +2354,8 @@ export type MicrocmsTags = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
   name?: Maybe<Scalars['String']>;
-  color?: Maybe<Scalars['String']>;
   tagsId?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
 };
 
 
@@ -2489,8 +2500,8 @@ export type MicrocmsTagsFieldsEnum =
   | 'updatedAt'
   | 'publishedAt'
   | 'name'
-  | 'color'
-  | 'tagsId';
+  | 'tagsId'
+  | 'color';
 
 export type MicrocmsTagsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -2501,8 +2512,8 @@ export type MicrocmsTagsFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  color?: Maybe<StringQueryOperatorInput>;
   tagsId?: Maybe<StringQueryOperatorInput>;
+  color?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MicrocmsTagsGroupConnection = {
@@ -2546,6 +2557,11 @@ export type PageInfo = {
   pageCount: Scalars['Int'];
   perPage?: Maybe<Scalars['Int']>;
   totalCount: Scalars['Int'];
+};
+
+export type PngOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  compressionSpeed?: Maybe<Scalars['Int']>;
 };
 
 export type Potrace = {
@@ -2751,7 +2767,7 @@ export type QueryImageSharpArgs = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
-  gatsbyImage?: Maybe<ImageSharpGatsbyImageFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2870,8 +2886,8 @@ export type QueryMicrocmsTagsArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  color?: Maybe<StringQueryOperatorInput>;
   tagsId?: Maybe<StringQueryOperatorInput>;
+  color?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -2891,12 +2907,13 @@ export type QueryMicrocmsPostsArgs = {
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
+  revisedAt?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
+  thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   body?: Maybe<StringQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
-  thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
@@ -3344,33 +3361,33 @@ export type SitePageContextPostsFilterListInput = {
 };
 
 export type SitePageContextPostsNode = {
-  contentSnippet?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   internal?: Maybe<SitePageContextPostsNodeInternal>;
-  isoDate?: Maybe<Scalars['Date']>;
-  link?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   postsId?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['Date']>;
   publishedAtOnHatena?: Maybe<Scalars['Date']>;
+  title?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<SitePageContextPostsNodeTags>>>;
   thumbnail?: Maybe<SitePageContextPostsNodeThumbnail>;
+  contentSnippet?: Maybe<Scalars['String']>;
+  isoDate?: Maybe<Scalars['Date']>;
+  link?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextPostsNodeFilterInput = {
-  contentSnippet?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   internal?: Maybe<SitePageContextPostsNodeInternalFilterInput>;
-  isoDate?: Maybe<DateQueryOperatorInput>;
-  link?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<SitePageContextPostsNodeTagsFilterListInput>;
   thumbnail?: Maybe<SitePageContextPostsNodeThumbnailFilterInput>;
+  contentSnippet?: Maybe<StringQueryOperatorInput>;
+  isoDate?: Maybe<DateQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextPostsNodeInternal = {
@@ -3507,16 +3524,16 @@ export type SitePageFieldsEnum =
   | 'context___limit'
   | 'context___page'
   | 'context___posts'
-  | 'context___posts___node___contentSnippet'
   | 'context___posts___node___id'
-  | 'context___posts___node___isoDate'
-  | 'context___posts___node___link'
-  | 'context___posts___node___title'
   | 'context___posts___node___description'
   | 'context___posts___node___postsId'
   | 'context___posts___node___publishedAt'
   | 'context___posts___node___publishedAtOnHatena'
+  | 'context___posts___node___title'
   | 'context___posts___node___tags'
+  | 'context___posts___node___contentSnippet'
+  | 'context___posts___node___isoDate'
+  | 'context___posts___node___link'
   | 'context___totalCount'
   | 'context___postsId'
   | 'context___name'
@@ -3575,10 +3592,11 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___theme_color'
   | 'pluginCreator___pluginOptions___display'
   | 'pluginCreator___pluginOptions___icon'
-  | 'pluginCreator___pluginOptions___cache_busting_mode'
-  | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___legacy'
   | 'pluginCreator___pluginOptions___theme_color_in_head'
+  | 'pluginCreator___pluginOptions___cache_busting_mode'
+  | 'pluginCreator___pluginOptions___crossOrigin'
+  | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cacheDigest'
   | 'pluginCreator___pluginOptions___apiKey'
   | 'pluginCreator___pluginOptions___serviceId'
@@ -3796,10 +3814,11 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___theme_color'
   | 'pluginOptions___display'
   | 'pluginOptions___icon'
-  | 'pluginOptions___cache_busting_mode'
-  | 'pluginOptions___include_favicon'
   | 'pluginOptions___legacy'
   | 'pluginOptions___theme_color_in_head'
+  | 'pluginOptions___cache_busting_mode'
+  | 'pluginOptions___crossOrigin'
+  | 'pluginOptions___include_favicon'
   | 'pluginOptions___cacheDigest'
   | 'pluginOptions___apiKey'
   | 'pluginOptions___serviceId'
@@ -3945,10 +3964,11 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
-  cache_busting_mode?: Maybe<Scalars['String']>;
-  include_favicon?: Maybe<Scalars['Boolean']>;
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
+  cache_busting_mode?: Maybe<Scalars['String']>;
+  crossOrigin?: Maybe<Scalars['String']>;
+  include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
   apiKey?: Maybe<Scalars['String']>;
   serviceId?: Maybe<Scalars['String']>;
@@ -3993,10 +4013,11 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
-  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
-  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
+  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
+  crossOrigin?: Maybe<StringQueryOperatorInput>;
+  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   apiKey?: Maybe<StringQueryOperatorInput>;
   serviceId?: Maybe<StringQueryOperatorInput>;
@@ -4051,6 +4072,19 @@ export type StringQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['String']>>>;
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
+};
+
+export type TransformOptions = {
+  grayscale?: Maybe<Scalars['Boolean']>;
+  duotone?: Maybe<DuotoneGradient>;
+  rotate?: Maybe<Scalars['Int']>;
+  trim?: Maybe<Scalars['Float']>;
+  cropFocus?: Maybe<ImageCropFocus>;
+  fit?: Maybe<ImageFit>;
+};
+
+export type WebPOptions = {
+  quality?: Maybe<Scalars['Int']>;
 };
 
 export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
