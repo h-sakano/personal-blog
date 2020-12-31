@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "personal-blog",
+  "private": false,
+  "description": "Personal blog with microCMS",
+  "version": "1.0.0",
+  "author": "Hiroki Sakano <h.sakano26@gmail.com>",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "antd": "^4.9.4",
@@ -99,9 +99,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/h-sakano/personal-blog"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/h-sakano/personal-blog/issues"
   }
 }
