@@ -2081,9 +2081,10 @@ export type MicrocmsPosts = Node & {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
+  contents?: Maybe<Array<Maybe<MicrocmsPostsContents>>>;
+  postsId?: Maybe<Scalars['String']>;
   thumbnail?: Maybe<MicrocmsPostsThumbnail>;
   body?: Maybe<Scalars['String']>;
-  postsId?: Maybe<Scalars['String']>;
   publishedAtOnHatena?: Maybe<Scalars['Date']>;
 };
 
@@ -2146,6 +2147,22 @@ export type MicrocmsPostsConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   field: MicrocmsPostsFieldsEnum;
+};
+
+export type MicrocmsPostsContents = {
+  fieldId?: Maybe<Scalars['String']>;
+  richEditor?: Maybe<Scalars['String']>;
+  html?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsPostsContentsFilterInput = {
+  fieldId?: Maybe<StringQueryOperatorInput>;
+  richEditor?: Maybe<StringQueryOperatorInput>;
+  html?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MicrocmsPostsContentsFilterListInput = {
+  elemMatch?: Maybe<MicrocmsPostsContentsFilterInput>;
 };
 
 export type MicrocmsPostsEdge = {
@@ -2254,9 +2271,13 @@ export type MicrocmsPostsFieldsEnum =
   | 'tags___publishedAt'
   | 'tags___name'
   | 'tags___color'
+  | 'contents'
+  | 'contents___fieldId'
+  | 'contents___richEditor'
+  | 'contents___html'
+  | 'postsId'
   | 'thumbnail___url'
   | 'body'
-  | 'postsId'
   | 'publishedAtOnHatena';
 
 export type MicrocmsPostsFilterInput = {
@@ -2271,9 +2292,10 @@ export type MicrocmsPostsFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
+  contents?: Maybe<MicrocmsPostsContentsFilterListInput>;
+  postsId?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   body?: Maybe<StringQueryOperatorInput>;
-  postsId?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
@@ -2717,8 +2739,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2911,9 +2931,10 @@ export type QueryMicrocmsPostsArgs = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
+  contents?: Maybe<MicrocmsPostsContentsFilterListInput>;
+  postsId?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   body?: Maybe<StringQueryOperatorInput>;
-  postsId?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
@@ -2970,8 +2991,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -3175,8 +3194,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___description'
   | 'siteMetadata___author'
   | 'siteMetadata___siteUrl'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3269,8 +3286,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -4135,7 +4150,7 @@ export type PostQueryVariables = Exact<{
 
 export type PostQuery = { microcmsPosts?: Maybe<(
     Pick<MicrocmsPosts, 'id' | 'body' | 'description' | 'publishedAt' | 'publishedAtOnHatena' | 'title'>
-    & { thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
+    & { contents?: Maybe<Array<Maybe<Pick<MicrocmsPostsContents, 'fieldId' | 'html' | 'richEditor'>>>>, thumbnail?: Maybe<Pick<MicrocmsPostsThumbnail, 'url'>>, tags?: Maybe<Array<Maybe<Pick<MicrocmsPostsTags, 'color' | 'id' | 'name'>>>> }
   )> };
 
 export type TagQueryVariables = Exact<{

@@ -56,11 +56,28 @@ const Post: React.FC<Props> = ({ data }) => {
             <Link to={`/tags/${tag.id}`}>{tag.name}</Link>
           </Tag>
         ))}
-        <div
-          className="post-body leading-7 mt-5"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: data.microcmsPosts.body }}
-        />
+        <div className="post-body leading-7 mt-5">
+          {data.microcmsPosts.contents?.map((content) => (
+            <React.Fragment key={content.fieldId}>
+              {content.richEditor && (
+                <div
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{ __html: content.richEditor }}
+                />
+              )}
+              {content.html && (
+                <div
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{ __html: content.html }}
+                />
+              )}
+            </React.Fragment>
+          ))}
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: data.microcmsPosts.body }}
+          />
+        </div>
       </article>
     </Layout>
   );
@@ -71,6 +88,11 @@ export const query = graphql`
     microcmsPosts(postsId: { eq: $postsId }) {
       id
       body
+      contents {
+        fieldId
+        html
+        richEditor
+      }
       description
       publishedAt
       publishedAtOnHatena
