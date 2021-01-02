@@ -57,7 +57,7 @@ const Post: React.FC<Props> = ({ data }) => {
           </Tag>
         ))}
         <div className="post-body leading-7 mt-5">
-          {data.microcmsPosts.contents.map((content) => (
+          {data.microcmsPosts.contents?.map((content) => (
             <React.Fragment key={content.fieldId}>
               {content.richEditor && (
                 <div
