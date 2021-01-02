@@ -2083,8 +2083,8 @@ export type MicrocmsPosts = Node & {
   tags?: Maybe<Array<Maybe<MicrocmsPostsTags>>>;
   thumbnail?: Maybe<MicrocmsPostsThumbnail>;
   contents?: Maybe<Array<Maybe<MicrocmsPostsContents>>>;
-  body?: Maybe<Scalars['String']>;
   postsId?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
   publishedAtOnHatena?: Maybe<Scalars['Date']>;
 };
 
@@ -2276,8 +2276,8 @@ export type MicrocmsPostsFieldsEnum =
   | 'contents___fieldId'
   | 'contents___richEditor'
   | 'contents___html'
-  | 'body'
   | 'postsId'
+  | 'body'
   | 'publishedAtOnHatena';
 
 export type MicrocmsPostsFilterInput = {
@@ -2294,8 +2294,8 @@ export type MicrocmsPostsFilterInput = {
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
   thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   contents?: Maybe<MicrocmsPostsContentsFilterListInput>;
-  body?: Maybe<StringQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
+  body?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
@@ -2935,8 +2935,8 @@ export type QueryMicrocmsPostsArgs = {
   tags?: Maybe<MicrocmsPostsTagsFilterListInput>;
   thumbnail?: Maybe<MicrocmsPostsThumbnailFilterInput>;
   contents?: Maybe<MicrocmsPostsContentsFilterListInput>;
-  body?: Maybe<StringQueryOperatorInput>;
   postsId?: Maybe<StringQueryOperatorInput>;
+  body?: Maybe<StringQueryOperatorInput>;
   publishedAtOnHatena?: Maybe<DateQueryOperatorInput>;
 };
 
