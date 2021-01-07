@@ -8,7 +8,7 @@
     "@ant-design/icons": "^4.3.0",
     "antd": "^4.10.0",
     "date-fns": "^2.16.1",
-    "gatsby": "^2.30.0",
+    "gatsby": "^2.30.1",
     "gatsby-image": "^2.9.0",
     "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-google-analytics": "^2.9.0",
