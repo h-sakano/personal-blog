@@ -46,7 +46,7 @@
     "babel-preset-gatsby": "^0.12.1",
     "eslint": "^7.20.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.0.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.3.1",
     "eslint-plugin-import": "^2.22.1",
@@ -56,7 +56,7 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "firebase-tools": "^9.5.0",
-    "husky": "^4.3.8",
+    "husky": "^5.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
@@ -67,7 +67,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
     "ts-jest": "^26.5.2",
-    "typescript": "^4.2.2"
+    "typescript": "4.1.5"
   },
   "keywords": [
     "gatsby"
@@ -82,12 +82,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "type-check": "tsc --noEmit"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn type-check && lint-staged"
-    }
+    "type-check": "tsc --noEmit",
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
