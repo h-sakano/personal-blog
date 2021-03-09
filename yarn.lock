@@ -8141,10 +8141,10 @@ find-versions@^3.0.0:
   dependencies:
     semver-regex "^2.0.0"
 
-firebase-tools@^9.5.0:
-  version "9.5.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-9.5.0.tgz#7d7448d87c1d4e38feaef04bd194d6904511fa99"
-  integrity sha512-M73hIhqfdzGO4eMAd+Jj8V2RPG1KDmhjdnHQaZsJOwmPXyX4eBeOO7dpeHTXU5bYg8AeHVzkCOcLobBcXgYxZw==
+firebase-tools@^9.6.0:
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-9.6.0.tgz#1dabe1c20b8b5bae0d3bc80b715d39b326380b4d"
+  integrity sha512-2r/dATLJKPqSbGQilJtJTHt1AhIza9msXFVrOEtaPohpCzOFcGdXJVBaoqmfx4tpbM7qiKw/+Ro+jo6PzdMEwQ==
   dependencies:
     "@google-cloud/pubsub" "^2.7.0"
     "@types/archiver" "^5.1.0"
@@ -20101,12 +20101,7 @@ ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-ws@^7.2.3, ws@^7.3.0:
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.2.tgz#782100048e54eb36fe9843363ab1c68672b261dd"
-  integrity sha512-T4tewALS3+qsrpGI/8dqNMLIVdq/g/85U98HPMa6F0m6xTbvhXU6RCQLqPH3+SlomNV/LdY6RXEbBpMH6EOJnA==
-
-ws@~7.4.2:
+ws@^7.2.3, ws@^7.3.0, ws@~7.4.2:
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.3.tgz#1f9643de34a543b8edb124bdcbc457ae55a6e5cd"
   integrity sha512-hr6vCR76GsossIRsr8OLR9acVVm1jyfEWvhbNjtgPOrfvAlKzvyeg/P6r8RuDjRyrcQoPQT7K0DGEPc7Ae6jzA==
