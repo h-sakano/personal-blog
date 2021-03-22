@@ -8812,10 +8812,10 @@ gatsby-source-filesystem@^2.11.1:
     valid-url "^1.0.9"
     xstate "^4.14.0"
 
-gatsby-source-microcms@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-microcms/-/gatsby-source-microcms-1.0.1.tgz#b43747336cd876d9ddf47b6da0d9ba8652868365"
-  integrity sha512-Iu+7mXhVip1NbPI9xZ0CURf9F4kuhZkTS3BoGbStVBo1dxREzFOooJPymR/tI3HlYZFJoKxf7xb4Lsyxzzaihw==
+gatsby-source-microcms@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-microcms/-/gatsby-source-microcms-1.1.0.tgz#540f7d10136530847ce7122a21953f603421e8cf"
+  integrity sha512-yKZF93AVqi3oLC7jAH5UVKykdks6yyFg6NFKEaO7gWW2OtgMFTby2GyUoBEbrzrrZUaJ4XtLc1AY7j0hjQo9qw==
   dependencies:
     "@hapi/joi" "^16.1.7"
     camelcase "^5.3.1"
