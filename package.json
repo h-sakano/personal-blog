@@ -9,7 +9,7 @@
     "antd": "^4.15.1",
     "date-fns": "^2.20.2",
     "gatsby": "^2.32.12",
-    "gatsby-image": "^2.11.0",
+    "gatsby-image": "^3.2.0",
     "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-google-analytics": "^2.11.0",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
