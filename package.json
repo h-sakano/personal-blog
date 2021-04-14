@@ -7,7 +7,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.15.1",
-    "date-fns": "^2.20.2",
+    "date-fns": "^2.20.3",
     "gatsby": "^2.32.12",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-antd": "^2.2.0",
