@@ -6,7 +6,7 @@
   "author": "Hiroki Sakano <h.sakano26@gmail.com>",
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
-    "antd": "^4.15.6",
+    "antd": "^4.16.0",
     "date-fns": "^2.21.3",
     "gatsby": "^2.32.13",
     "gatsby-image": "^2.11.0",
