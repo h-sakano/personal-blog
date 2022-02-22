@@ -1,12 +1,10 @@
 import React from 'react';
-import { CreatePagesFromMicroCmsQuery } from '../../types/graphql-types';
 import Layout from '../components/Layout';
 import PostsList from '../components/PostsList';
 import SEO from '../components/SEO';
 import { PostsPageContext } from '../gatsby-node';
 
 interface Props {
-  data: CreatePagesFromMicroCmsQuery;
   pageContext: PostsPageContext;
 }
 

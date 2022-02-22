@@ -29,8 +29,10 @@ const ListLimit = 5;
 
 const getPublishedAt = (post: PostType): Date =>
   isMicrocmsPost(post)
-    ? new Date(post.node.publishedAtOnHatena ?? post.node.publishedAt)
-    : new Date(post.node.isoDate);
+    ? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      new Date(post.node.publishedAtOnHatena ?? post.node.publishedAt)
+    : // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      new Date(post.node.isoDate);
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
