@@ -35,12 +35,22 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
       <div className="md:flex">
         <main className="mt-3 w-full md:flex-1">{children}</main>
         <aside className="mt-3 md:ml-2 w-full md:w-64">
-          <div className="w-full">
+          <div className="w-full flex flex-col items-center">
             <Profile />
             <div className="mt-2">
+              <iframe
+                frameBorder="0"
+                height="365"
+                scrolling="no"
+                src="https://camp-fire.jp/projects/540880/widget"
+                title="クラウドファンディング"
+                width="245"
+              />
+            </div>
+            <div className="mt-2 w-full">
               <SourceCode />
             </div>
-            <div className="mt-2">
+            <div className="mt-2 w-full">
               <TwitterWidget />
             </div>
           </div>

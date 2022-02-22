@@ -21,9 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({
     () => Math.floor((itemCount - 1) / itemPerPage) + 1,
     [itemCount, itemPerPage],
   );
-  const trimmedbaseUrl = useMemo(() => baseUrl.replace(new RegExp('/$'), ''), [
-    baseUrl,
-  ]);
+  const trimmedbaseUrl = useMemo(() => baseUrl.replace(/\/$/, ''), [baseUrl]);
   const ellipsisLeftMd = useMemo(() => {
     if (pageCount <= sidesNumMd * 2) {
       return -1;

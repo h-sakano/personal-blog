@@ -146,6 +146,12 @@ module.exports = {
     ],
 
     // react
+    'react/function-component-definition': [
+      'error',
+      {
+        "namedComponents": "arrow-function",
+      },
+    ],
     'react/jsx-filename-extension': [
       'error',
       {
