@@ -1,7 +1,7 @@
 import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 const Profile = () => {
@@ -9,9 +9,7 @@ const Profile = () => {
     query {
       avatar: file(relativePath: { eq: "profile.png" }) {
         childImageSharp {
-          fixed(width: 64) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(layout: FIXED, width: 64)
         }
       }
     }
@@ -20,10 +18,10 @@ const Profile = () => {
   return (
     <Card className="w-full" title="プロフィール" bordered={false}>
       <div className="flex items-center">
-        <Img
+        <GatsbyImage
           alt="プロフィール画像"
           className="block rounded-full"
-          fixed={data.avatar.childImageSharp.fixed}
+          image={data.avatar.childImageSharp.gatsbyImageData}
         />
         <div className="flex-1 ml-3">
           <a
