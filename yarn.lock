@@ -7902,10 +7902,10 @@ gatsby-plugin-antd@^2.2.0:
     antd "^4.0.0"
     babel-plugin-import "^1.13.0"
 
-gatsby-plugin-google-analytics@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.7.0.tgz#c68f187f57748bab220da0ab9f0f78a94793f692"
-  integrity sha512-LQN+Awf7WvodYKytBZFLL40B3PPk7TPHjPa7fDzlq7J9k+/MIXQ1aYAmxhVJN3WK//GdhrltrxPZVwgomaO5NA==
+gatsby-plugin-google-analytics@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.9.0.tgz#a1cd6087d4d75072e9522827b97c84bee90d6bb3"
+  integrity sha512-TMvOJy8tD/Tn0udp0mvBxYC6ToOaokuIB8utJssyeS4aEh5o/xtBxQmLkJsn/2UZXLRXFqHWoQkZhqzGdk8/MQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     minimatch "3.0.4"
