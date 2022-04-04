@@ -8040,10 +8040,10 @@ gatsby-plugin-sitemap@^5.7.0:
     minimatch "^3.0.4"
     sitemap "^7.0.0"
 
-gatsby-plugin-twitter@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-4.7.0.tgz#b512ae0eda7485039c236126a26e858483354ed9"
-  integrity sha512-Tfsh0XXJBHZoat2y+CjIfUjS1XWZDVE91PpUQ+lWGJTZH6yZB37ePyeqD1AoRaTOmDvIJavZMZT2Z3s8mO0Asw==
+gatsby-plugin-twitter@^4.11.1:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-4.11.1.tgz#a25be2bdffdb795c19c0f90be5053d8a59cceec1"
+  integrity sha512-y/bRLXd1ME46ktvpcCo63EgecxPEF0mUu44vHKWEk0mcFXRqBZeiKDLkD6xGLk9mPMkqH3hD7j115oI+Fq1ArQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
 
