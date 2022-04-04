@@ -54,7 +54,7 @@
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
     "firebase-tools": "^10.2.1",
     "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
