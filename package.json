@@ -20,7 +20,7 @@
     "gatsby-plugin-sharp": "^4.7.0",
     "gatsby-plugin-sitemap": "^5.7.0",
     "gatsby-plugin-twitter": "^4.7.0",
-    "gatsby-plugin-typescript": "^4.7.0",
+    "gatsby-plugin-typescript": "^4.11.1",
     "gatsby-source-filesystem": "^4.7.0",
     "gatsby-source-microcms": "^2.0.0",
     "gatsby-source-rss-feed": "^1.2.2",
